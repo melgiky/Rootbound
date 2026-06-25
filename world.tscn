@@ -671,14 +671,14 @@ tile_set = ExtResource("12_2o6r5")
 format = 2
 layer_0/tile_data = PackedInt32Array(983041, 327680, 23, 983040, 327680, 23, 1048575, 327680, 23, 983042, 327680, 23, 1507312, 327680, 23, 1507313, 327680, 23, 1507315, 327680, 23, 1507314, 327680, 23, 1572849, 327680, 23, 1572850, 327680, 23, 1572851, 327680, 23, 1572848, 327680, 23, 1441779, 0, 21, 1441778, 0, 21, 1441777, 0, 21, 1441776, 0, 21, 1245166, 327680, 23, 1310702, 327680, 23, 1376238, 327680, 23, 1441774, 327680, 23, 1441775, 327680, 23, 1376239, 327680, 23, 1310703, 327680, 23, 1245167, 327680, 23)
 
-[node name="Tocha3" parent="." unique_id=1819812407 instance=ExtResource("12_k3n1d")]
-position = Vector2(-120, 642)
-
 [node name="Tocha2" parent="." unique_id=1766638594 instance=ExtResource("12_k3n1d")]
 position = Vector2(-60, 321)
 
 [node name="Tocha" parent="." unique_id=299999921 instance=ExtResource("12_k3n1d")]
 position = Vector2(-3, 321)
+
+[node name="Tocha3" parent="." unique_id=1819812407 instance=ExtResource("12_k3n1d")]
+position = Vector2(-117, 320)
 
 [node name="Player" parent="." unique_id=1902257347 instance=ExtResource("11_ic0uy")]
 position = Vector2(3, 200)
