@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://hhy2o3dd738y"]
+
+[ext_resource type="AudioStream" uid="uid://oblyem2yc3im" path="res://MELISSA/AUDIO/freesound_community-centaur-forest-60695.mp3" id="1_hoisv"]
+
+[node name="Bgmusic1" type="AudioStreamPlayer2D" unique_id=350150754]
+stream = ExtResource("1_hoisv")
+volume_db = -32.099
+autoplay = true
