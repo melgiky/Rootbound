@@ -136,9 +136,8 @@ shape = SubResource("RectangleShape2D_70r8v")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=346378998]
 position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_u4gk4")
-animation = &"dano"
+animation = &"cavar"
 autoplay = "idle"
-frame_progress = 1.0
 
 [node name="jump" type="AudioStreamPlayer" parent="." unique_id=1690071958]
 stream = ExtResource("5_8fulk")
@@ -151,36 +150,41 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="heart" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=763996119]
-custom_minimum_size = Vector2(30, 0)
+custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 
 [node name="Heartanimations" parent="CanvasLayer/HBoxContainer/heart" unique_id=1403642457 instance=ExtResource("6_u4gk4")]
-position = Vector2(16, 16)
+position = Vector2(24, 23)
+scale = Vector2(1.5, 1.5)
 
-[node name="heart2" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=202606769]
-custom_minimum_size = Vector2(30, 0)
+[node name="heart2" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=1208415700]
+custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 
-[node name="Heartanimations" parent="CanvasLayer/HBoxContainer/heart2" unique_id=1824448563 instance=ExtResource("6_u4gk4")]
-position = Vector2(16, 16)
+[node name="Heartanimations" parent="CanvasLayer/HBoxContainer/heart2" unique_id=2022332470 instance=ExtResource("6_u4gk4")]
+position = Vector2(24, 23)
+scale = Vector2(1.5, 1.5)
 
-[node name="heart3" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=443421440]
-custom_minimum_size = Vector2(30, 0)
+[node name="heart3" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=1230232677]
+custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 
-[node name="Heartanimations" parent="CanvasLayer/HBoxContainer/heart3" unique_id=1965404749 instance=ExtResource("6_u4gk4")]
-position = Vector2(16, 16)
+[node name="Heartanimations" parent="CanvasLayer/HBoxContainer/heart3" unique_id=1556770016 instance=ExtResource("6_u4gk4")]
+position = Vector2(24, 23)
+scale = Vector2(1.5, 1.5)
 
-[node name="heart4" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=111217853]
-custom_minimum_size = Vector2(30, 0)
+[node name="heart4" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=357586841]
+custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 
-[node name="Heartanimations" parent="CanvasLayer/HBoxContainer/heart4" unique_id=1472194719 instance=ExtResource("6_u4gk4")]
-position = Vector2(16, 16)
+[node name="Heartanimations" parent="CanvasLayer/HBoxContainer/heart4" unique_id=1097983209 instance=ExtResource("6_u4gk4")]
+position = Vector2(24, 23)
+scale = Vector2(1.5, 1.5)
 
-[node name="heart5" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=1826931368]
-custom_minimum_size = Vector2(30, 0)
+[node name="heart5" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=965489784]
+custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 
-[node name="Heartanimations" parent="CanvasLayer/HBoxContainer/heart5" unique_id=553347747 instance=ExtResource("6_u4gk4")]
-position = Vector2(16, 16)
+[node name="Heartanimations" parent="CanvasLayer/HBoxContainer/heart5" unique_id=883764038 instance=ExtResource("6_u4gk4")]
+position = Vector2(24, 23)
+scale = Vector2(1.5, 1.5)
