@@ -680,6 +680,16 @@ position = Vector2(-3, 321)
 [node name="Tocha3" parent="." unique_id=1819812407 instance=ExtResource("12_k3n1d")]
 position = Vector2(-117, 320)
 
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1612649448]
+visible = false
+color = Color(0, 0, 0, 1)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=547164577]
+visible = false
+color = Color(0.9472495, 0.74726695, 3.85046e-07, 1)
+energy = 1.2
+shadow_enabled = true
+
 [node name="Player" parent="." unique_id=1902257347 instance=ExtResource("11_ic0uy")]
 position = Vector2(3, 200)
 

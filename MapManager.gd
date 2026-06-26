@@ -10,7 +10,6 @@ func can_mine(pos):
 	var distance = player.global_position.distance_to(pos)
 
 	return distance <= MINE_RANGE
-
 func _ready():
 	SignalManager.connect("SPAWN_BLOCK_PARTICLES",spawn_block_particles)
 	randomize()

@@ -121,7 +121,8 @@ shape = SubResource("RectangleShape2D_70r8v")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=346378998]
 position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_u4gk4")
-animation = &"cavar"
+animation = &"idle"
+autoplay = "idle"
 
 [node name="jump" type="AudioStreamPlayer" parent="." unique_id=1690071958]
 stream = ExtResource("5_8fulk")

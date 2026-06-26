@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://di3rg4x4b3a63"]
+
+[ext_resource type="Script" uid="uid://cx03vv15doxak" path="res://MENU/menu.gd" id="1_nfeq4"]
+[ext_resource type="FontFile" uid="uid://8lg5x1ra5hre" path="res://resources/fonts/KiwiSoda.ttf" id="2_i0ot0"]
+
+[sub_resource type="Theme" id="Theme_xmf8c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vlpc8"]
+
+[node name="Menu" type="Node2D" unique_id=1649304951]
+script = ExtResource("1_nfeq4")
+
+[node name="Label" type="Label" parent="." unique_id=1101928610]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 380.0
+offset_top = 109.0
+offset_right = 746.0
+offset_bottom = 282.0
+grow_vertical = 2
+theme = SubResource("Theme_xmf8c")
+theme_override_fonts/font = ExtResource("2_i0ot0")
+theme_override_font_sizes/font_size = 35
+text = "Rootbound"
+label_settings = SubResource("LabelSettings_vlpc8")
+
+[node name="Control" type="Control" parent="." unique_id=644923575]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="iniciar" type="Button" parent="Control" unique_id=296463494]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 201.0
+offset_right = 791.0
+offset_bottom = 284.0
+text = "começar"
+
+[node name="sair" type="Button" parent="Control" unique_id=1885110201]
+layout_mode = 0
+offset_left = 258.0
+offset_top = 508.0
+offset_right = 790.0
+offset_bottom = 599.0
+text = "sair"
+
+[node name="opcoes" type="Button" parent="Control" unique_id=1184978536]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 354.0
+offset_right = 790.0
+offset_bottom = 439.0
+text = "opções"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2133404821]
+root_node = NodePath("../Logo")
+
+[node name="Logo" type="Sprite2D" parent="." unique_id=972853241]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1353305371]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="Control/iniciar" to="." method="_on_iniciar_pressed"]
+[connection signal="pressed" from="Control/sair" to="." method="_on_sair_pressed"]
+[connection signal="pressed" from="Control/opcoes" to="." method="_on_opcoes_pressed"]
