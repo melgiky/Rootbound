@@ -12,3 +12,4 @@ func _on_sair_pressed() -> void:
 
 func _on_opcoes_pressed() -> void:
 	get_tree().quit()
+	

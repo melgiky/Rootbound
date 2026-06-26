@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://db8mq7bura2qq"
-path="res://.godot/imported/Pixel_Woods_Tileset.png-ae0acbd236cff354fe99582e276af0e7.ctex"
+uid="uid://p1bbsvje1fkt"
+path="res://.godot/imported/BOTAO_SIM_SAIR.png-d24f766dc9b45c9503bf79cb6b071aca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PLAYER/Pixel_Woods_Tileset.png"
-dest_files=["res://.godot/imported/Pixel_Woods_Tileset.png-ae0acbd236cff354fe99582e276af0e7.ctex"]
+source_file="res://MENU/BOTAO_SIM_SAIR.png"
+dest_files=["res://.godot/imported/BOTAO_SIM_SAIR.png-d24f766dc9b45c9503bf79cb6b071aca.ctex"]
 
 [params]
 

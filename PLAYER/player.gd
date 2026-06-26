@@ -1,8 +1,7 @@
 extends CharacterBody2D
 
-var walk_speed = 150.0
+@export var walk_speed = 150.0
 const JUMP_VELOCITY = -400.0
-
 @export_range(0,1) var decelleration = 0.1
 @export_range(0,1) var acceleration = 0.1
 @export_range(150,300) var run_speed = 250.0
@@ -12,9 +11,37 @@ const JUMP_VELOCITY = -400.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var heartanimations: AnimatedSprite2D = $Heartanimations
 @onready var jump: AudioStreamPlayer = $jump
 @onready var world = get_parent()
 
+var alive : bool = true
+var hearts_list : Array[TextureRect]
+var health = 5
+
+func _ready() -> void:
+	var hearts_parent = $CanvasLayer/HBoxContainer
+	for child in hearts_parent.get_children():
+		hearts_list.append(child)
+	print (hearts_list)
+
+func take_damage():
+	if health >0:
+		health -= 1
+		animated_sprite.play("dano")
+		update_heart_display()
+
+func update_heart_display():
+	for i in range(hearts_list.size()):
+		hearts_list[i].visible = i < health
+
+	# pega o sprite do primeiro coração
+	var heart_anim = hearts_list[0].get_child(0)
+
+	if health == 1:
+		heart_anim.play("beating")
+	elif health > 1:
+		heart_anim.play("idle")
 const TILE_SIZE = 16
 
 # 💥 STATE MACHINE
@@ -27,6 +54,9 @@ var state = State.IDLE
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
+
+	if health == 0:
+		get_tree().change_scene_to_file("res://MENU/MENU.tscn")
 
 	if Input.is_action_just_pressed("LEFT_MOUSE"):
 		mine()

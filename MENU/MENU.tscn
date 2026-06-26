@@ -2,27 +2,21 @@
 
 [ext_resource type="Script" uid="uid://cx03vv15doxak" path="res://MENU/menu.gd" id="1_nfeq4"]
 [ext_resource type="FontFile" uid="uid://8lg5x1ra5hre" path="res://resources/fonts/KiwiSoda.ttf" id="2_i0ot0"]
-
-[sub_resource type="Theme" id="Theme_xmf8c"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_vlpc8"]
+[ext_resource type="Texture2D" uid="uid://0bx48t8dyx51" path="res://MENU/FOTO_MENU.png" id="2_w78xv"]
+[ext_resource type="Texture2D" uid="uid://4buhequcrbet" path="res://MENU/BOTAO_NAO.png" id="3_vlpc8"]
+[ext_resource type="Texture2D" uid="uid://bo8t3k30bnagl" path="res://MENU/image-removebg-preview (15).png" id="4_35yhv"]
+[ext_resource type="Texture2D" uid="uid://efhrsdyoi67i" path="res://MENU/BOTAO_SIM.png" id="4_f5b55"]
+[ext_resource type="Texture2D" uid="uid://p1bbsvje1fkt" path="res://MENU/BOTAO_SIM_SAIR.png" id="6_35yhv"]
+[ext_resource type="FontFile" uid="uid://dn2f71onqoqqq" path="res://resources/fonts/PixelatedEleganceRegular-ovawB.ttf" id="6_cswfe"]
+[ext_resource type="AudioStream" uid="uid://dedbpmnjc4c7b" path="res://MELISSA/AUDIO/dongting_mora-playing-in-the-forest-152450.mp3" id="9_mq7sp"]
 
 [node name="Menu" type="Node2D" unique_id=1649304951]
 script = ExtResource("1_nfeq4")
 
-[node name="Label" type="Label" parent="." unique_id=1101928610]
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_left = 380.0
-offset_top = 109.0
-offset_right = 746.0
-offset_bottom = 282.0
-grow_vertical = 2
-theme = SubResource("Theme_xmf8c")
-theme_override_fonts/font = ExtResource("2_i0ot0")
-theme_override_font_sizes/font_size = 35
-text = "Rootbound"
-label_settings = SubResource("LabelSettings_vlpc8")
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1353305371]
+offset_right = 1130.0
+offset_bottom = 715.0
+texture = ExtResource("2_w78xv")
 
 [node name="Control" type="Control" parent="." unique_id=644923575]
 layout_mode = 3
@@ -30,39 +24,62 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="iniciar" type="Button" parent="Control" unique_id=296463494]
+[node name="iniciar" type="TextureButton" parent="Control" unique_id=1777150565]
 layout_mode = 0
-offset_left = 262.0
-offset_top = 201.0
-offset_right = 791.0
-offset_bottom = 284.0
-text = "começar"
+offset_left = 386.0
+offset_top = 281.0
+offset_right = 685.0
+offset_bottom = 416.0
+texture_normal = ExtResource("3_vlpc8")
+texture_pressed = ExtResource("4_f5b55")
+texture_hover = ExtResource("4_f5b55")
 
-[node name="sair" type="Button" parent="Control" unique_id=1885110201]
+[node name="sair" type="TextureButton" parent="Control" unique_id=1459228749]
 layout_mode = 0
-offset_left = 258.0
-offset_top = 508.0
-offset_right = 790.0
-offset_bottom = 599.0
-text = "sair"
-
-[node name="opcoes" type="Button" parent="Control" unique_id=1184978536]
-layout_mode = 0
-offset_left = 264.0
-offset_top = 354.0
-offset_right = 790.0
-offset_bottom = 439.0
-text = "opções"
+offset_left = 386.0
+offset_top = 408.0
+offset_right = 682.0
+offset_bottom = 543.0
+texture_normal = ExtResource("4_35yhv")
+texture_pressed = ExtResource("6_35yhv")
+texture_hover = ExtResource("6_35yhv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2133404821]
-root_node = NodePath("../Logo")
+root_node = NodePath("")
 
-[node name="Logo" type="Sprite2D" parent="." unique_id=972853241]
+[node name="Rótulo" type="Label" parent="." unique_id=62526596]
+offset_left = 27.0
+offset_top = 641.0
+offset_right = 607.0
+offset_bottom = 669.0
+theme_override_fonts/font = ExtResource("6_cswfe")
+theme_override_font_sizes/font_size = 20
+text = "Projeto integrado 1 - Design de Jogos UFPel"
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1353305371]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Título" type="Label" parent="." unique_id=1947511353]
+offset_left = 219.0
+offset_top = 103.0
+offset_right = 866.0
+offset_bottom = 254.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_i0ot0")
+theme_override_font_sizes/font_size = 150
+text = "RootBound"
+
+[node name="Título" type="Label" parent="Título" unique_id=960654277]
+layout_mode = 0
+offset_left = 10.0
+offset_top = -13.0
+offset_right = 657.0
+offset_bottom = 138.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_i0ot0")
+theme_override_font_sizes/font_size = 150
+text = "RootBound"
+
+[node name="BGMusicMenu" type="AudioStreamPlayer" parent="." unique_id=338894507]
+stream = ExtResource("9_mq7sp")
+autoplay = true
 
 [connection signal="pressed" from="Control/iniciar" to="." method="_on_iniciar_pressed"]
 [connection signal="pressed" from="Control/sair" to="." method="_on_sair_pressed"]
-[connection signal="pressed" from="Control/opcoes" to="." method="_on_opcoes_pressed"]

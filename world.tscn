@@ -12,10 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://c6v4bd2iqlwwr" path="res://MELISSA/grass_biome/grass_biome_all_dirt.png" id="10_udxuc"]
 [ext_resource type="PackedScene" uid="uid://hvhfdwjsit0f" path="res://PLAYER/Player.tscn" id="11_ic0uy"]
 [ext_resource type="Texture2D" uid="uid://buyecuyo1xadl" path="res://MELISSA/grass_biome/grass_biome_mixed.png" id="11_ikiii"]
-[ext_resource type="TileSet" uid="uid://dn3wgdu8s8bt2" path="res://MELISSA/map (2)/tileset.tres" id="12_2o6r5"]
 [ext_resource type="Texture2D" uid="uid://dj6dy46us4slg" path="res://MELISSA/terra.png" id="12_cbp6q"]
 [ext_resource type="PackedScene" uid="uid://cyiala57j514r" path="res://COISAS/Tocha.tscn" id="12_k3n1d"]
 [ext_resource type="Texture2D" uid="uid://dpgo85ecrfafm" path="res://MELISSA/Pixel_Woods_Tileset.png" id="13_26xuy"]
+[ext_resource type="TileSet" uid="uid://dn3wgdu8s8bt2" path="res://TILESETS/map (2)/tileset.tres" id="14_2u3nc"]
+[ext_resource type="PackedScene" uid="uid://b0ay7vfudnnpx" path="res://COISAS/Espinho.tscn" id="16_udxuc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2o6r5"]
 size = Vector2(20, 189)
@@ -667,7 +668,7 @@ tile_map_data = PackedByteArray("AAADAAoAAAAKAAIAAAADAAsAAAAKAAMAAAADAAwAAAAKAAQ
 tile_set = SubResource("TileSet_4h6ng")
 
 [node name="Quebraveis" type="TileMap" parent="." unique_id=2123928731]
-tile_set = ExtResource("12_2o6r5")
+tile_set = ExtResource("14_2u3nc")
 format = 2
 layer_0/tile_data = PackedInt32Array(983041, 327680, 23, 983040, 327680, 23, 1048575, 327680, 23, 983042, 327680, 23, 1507312, 327680, 23, 1507313, 327680, 23, 1507315, 327680, 23, 1507314, 327680, 23, 1572849, 327680, 23, 1572850, 327680, 23, 1572851, 327680, 23, 1572848, 327680, 23, 1441779, 0, 21, 1441778, 0, 21, 1441777, 0, 21, 1441776, 0, 21, 1245166, 327680, 23, 1310702, 327680, 23, 1376238, 327680, 23, 1441774, 327680, 23, 1441775, 327680, 23, 1376239, 327680, 23, 1310703, 327680, 23, 1245167, 327680, 23)
 
@@ -680,27 +681,20 @@ position = Vector2(-3, 321)
 [node name="Tocha3" parent="." unique_id=1819812407 instance=ExtResource("12_k3n1d")]
 position = Vector2(-117, 320)
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1612649448]
-visible = false
-color = Color(0, 0, 0, 1)
-
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=547164577]
-visible = false
-color = Color(0.9472495, 0.74726695, 3.85046e-07, 1)
-energy = 1.2
-shadow_enabled = true
+[node name="Espinho" parent="." unique_id=191000929 instance=ExtResource("16_udxuc")]
+position = Vector2(-15, 231)
 
 [node name="Player" parent="." unique_id=1902257347 instance=ExtResource("11_ic0uy")]
-position = Vector2(3, 200)
+position = Vector2(15, 228)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1064944741]
-position = Vector2(-2, 34)
 ignore_rotation = false
 zoom = Vector2(4, 4)
 process_callback = 0
-limit_top = 65
+limit_left = -9999980
+limit_top = 66
 limit_right = 143
-limit_bottom = 9999882
+limit_bottom = 9999757
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 6.0

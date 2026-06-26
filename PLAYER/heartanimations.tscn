@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://radjo7x18ucg"]
+
+[ext_resource type="Texture2D" uid="uid://02ub837opm7s" path="res://TOUPEIRA/heart_spritesheet_32x32.png" id="1_prlmj"]
+[ext_resource type="Texture2D" uid="uid://d3ctg8khldq6t" path="res://TOUPEIRA/heart_32x32.png" id="2_pvair"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2etk"]
+atlas = ExtResource("1_prlmj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nsix"]
+atlas = ExtResource("1_prlmj")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ic3dm"]
+atlas = ExtResource("1_prlmj")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2vrf"]
+atlas = ExtResource("1_prlmj")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1e4c"]
+atlas = ExtResource("2_pvair")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gy4v3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2etk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nsix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ic3dm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2vrf")
+}],
+"loop": true,
+"name": &"beating",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1e4c")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Heartanimations" type="AnimatedSprite2D" unique_id=1403642457]
+sprite_frames = SubResource("SpriteFrames_gy4v3")
+animation = &"beating"
+frame_progress = 0.20211089
