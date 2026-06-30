@@ -16,7 +16,11 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var jump: AudioStreamPlayer = $jump
 @onready var damage: AudioStreamPlayer = $damage
+@onready var game_over: AudioStreamPlayer = $game_over
 @onready var world = get_parent()
+
+var is_dead = false
+
 
 # ==========================================
 # HEALTH
@@ -24,6 +28,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var hearts_list : Array[TextureRect]
 var health = 5
+
 
 # ==========================================
 # MINING
@@ -33,12 +38,14 @@ const MINE_INTERVAL = 0.18
 var mine_timer = 0.0
 var mine_direction = "right"
 
+
 # ==========================================
 # KNOCKBACK
 # ==========================================
 
 var knockback_velocity = Vector2.ZERO
 var knockback_timer = 0.0
+
 
 # ==========================================
 # STATES
@@ -61,15 +68,19 @@ func _physics_process(delta):
 	handle_quit()
 	handle_death()
 
-	# knockback tem prioridade
-	if state == State.HURT:
+	if state == State.DEAD:
+		move_and_slide()
+		return
 
+	if state == State.HURT:
 		handle_knockback(delta)
 
 	else:
-
 		handle_mining(delta)
-		handle_movement(delta)
+
+		# só move se NÃO estiver minerando
+		if state != State.MINE:
+			handle_movement(delta)
 
 	update_animation()
 	move_and_slide()
@@ -87,13 +98,25 @@ func handle_quit():
 
 func handle_death():
 
-	if health <= 0 and state != State.DEAD:
+	if health <= 0 and not is_dead:
+		is_dead = true
 		state = State.DEAD
-		velocity = Vector2.ZERO
-		animated_sprite.play("morrer")
-		await animated_sprite.animation_finished
-		get_tree().change_scene_to_file("res://MENU/MENU.tscn")
+		die()
 
+
+func die():
+
+	velocity = Vector2.ZERO
+	game_over.play()
+
+	animated_sprite.play("morrer")
+
+	await animated_sprite.animation_finished
+	await get_tree().create_timer(2.0).timeout
+
+	get_tree().change_scene_to_file(
+		"res://MENU/MENU.tscn"
+	)
 
 
 # ==========================================
@@ -105,8 +128,6 @@ func apply_knockback(direction: Vector2, force: float, duration: float):
 	state = State.HURT
 
 	knockback_velocity = direction * force
-
-	# empurra levemente pra cima
 	knockback_velocity.y = -120
 
 	knockback_timer = duration
@@ -116,7 +137,6 @@ func handle_knockback(delta):
 
 	velocity = knockback_velocity
 
-	# gravidade continua
 	velocity.y += gravity * delta
 
 	knockback_timer -= delta
@@ -133,7 +153,7 @@ func handle_knockback(delta):
 
 func handle_mining(delta):
 
-	if state == State.HURT:
+	if state == State.HURT or state == State.DEAD:
 		return
 
 	if Input.is_action_pressed("LEFT_MOUSE"):
@@ -144,6 +164,7 @@ func handle_mining(delta):
 		mine_timer += delta
 
 		if mine_timer >= MINE_INTERVAL:
+
 			mine()
 			mine_timer = 0.0
 
@@ -186,6 +207,9 @@ func get_mine_direction():
 
 func handle_movement(delta):
 
+	if state == State.DEAD:
+		return
+
 	if state == State.HURT:
 		return
 
@@ -225,7 +249,7 @@ func handle_movement(delta):
 	else:
 
 		state = State.IDLE
- 
+
 		velocity.x = move_toward(
 			velocity.x,
 			0,
@@ -279,17 +303,27 @@ func update_animation():
 				animated_sprite.play("dano")
 
 
+		State.DEAD:
+
+			if animated_sprite.animation != "morrer":
+				animated_sprite.play("morrer")
+
+
 # ==========================================
 # DAMAGE
 # ==========================================
 
 func take_damage():
 
+	if is_dead:
+		return
+
 	if health <= 0:
 		return
 
 	health -= 1
 	damage.play()
+
 	update_heart_display()
 
 

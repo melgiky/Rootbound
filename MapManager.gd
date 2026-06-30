@@ -8,6 +8,8 @@ const MINE_RANGE = 72.0
 
 func _ready():
 
+	Dialogic.start("cena1")
+
 	SignalManager.connect(
 		"SPAWN_BLOCK_PARTICLES",
 		spawn_block_particles
@@ -257,3 +259,7 @@ func spawn_block_particles(
 			block_type,
 			start_collision
 		)
+
+
+func _on_button_pressed() -> void:
+	Dialogic.start_timeline("cena1")

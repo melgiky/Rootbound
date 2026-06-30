@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://radjo7x18ucg" path="res://PLAYER/heartanimations.tscn" id="6_u4gk4"]
 [ext_resource type="Texture2D" uid="uid://deqldwaunl73u" path="res://TOUPEIRA/kill toupeira .png" id="6_y314m"]
 [ext_resource type="AudioStream" uid="uid://bgaykem07te5f" path="res://MELISSA/AUDIO/edr-video-game-hit-noise-001-135821.mp3" id="8_2pur7"]
+[ext_resource type="AudioStream" uid="uid://o1kv158peoyg" path="res://MELISSA/AUDIO/lesiakower-8-bit-game-over-sound-effect-331435.mp3" id="10_y4igl"]
 
 [sub_resource type="Animation" id="Animation_hurok"]
 length = 0.001
@@ -121,7 +122,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"cavar",
-"speed": 3.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -194,7 +195,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 3.0
+"speed": 12.0
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=1902257347 groups=["player"]]
@@ -211,7 +212,7 @@ shape = SubResource("RectangleShape2D_70r8v")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=346378998]
 position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_u4gk4")
-animation = &"morrer"
+animation = &"run"
 autoplay = "idle"
 
 [node name="jump" type="AudioStreamPlayer" parent="." unique_id=1690071958]
@@ -221,6 +222,9 @@ volume_db = -29.531
 [node name="damage" type="AudioStreamPlayer" parent="." unique_id=1595886370]
 stream = ExtResource("8_2pur7")
 volume_db = -17.558
+
+[node name="game_over" type="AudioStreamPlayer" parent="." unique_id=864074151]
+stream = ExtResource("10_y4igl")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1902072137]
 
