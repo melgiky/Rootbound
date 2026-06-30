@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://dpgo85ecrfafm" path="res://MELISSA/Pixel_Woods_Tileset.png" id="13_26xuy"]
 [ext_resource type="TileSet" uid="uid://dn3wgdu8s8bt2" path="res://TILESETS/map (2)/tileset.tres" id="14_2u3nc"]
 [ext_resource type="PackedScene" uid="uid://b0ay7vfudnnpx" path="res://COISAS/Espinho.tscn" id="16_udxuc"]
+[ext_resource type="AudioStream" uid="uid://oblyem2yc3im" path="res://MELISSA/AUDIO/freesound_community-centaur-forest-60695.mp3" id="18_ikiii"]
 
 [sub_resource type="Gradient" id="Gradient_udxuc"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -689,7 +690,7 @@ tile_set = SubResource("TileSet_4h6ng")
 [node name="Quebraveis" type="TileMap" parent="." unique_id=2123928731]
 tile_set = ExtResource("14_2u3nc")
 format = 2
-layer_0/tile_data = PackedInt32Array(983041, 327680, 23, 983040, 327680, 23, 1048575, 327680, 23, 983042, 327680, 23, 1507312, 327680, 23, 1507313, 327680, 23, 1507315, 327680, 23, 1507314, 327680, 23, 1572849, 327680, 23, 1572850, 327680, 23, 1572851, 327680, 23, 1572848, 327680, 23, 1441779, 0, 21, 1441778, 0, 21, 1441777, 0, 21, 1441776, 0, 21, 1245166, 327680, 23, 1310702, 327680, 23, 1376238, 327680, 23, 1441774, 327680, 23, 1441775, 327680, 23, 1376239, 327680, 23, 1310703, 327680, 23, 1245167, 327680, 23)
+layer_0/tile_data = PackedInt32Array(1507325, 6, 0, 983042, 196615, 0, 983041, 196615, 0, 983040, 196615, 0, 1048575, 196615, 0, 1048578, 131079, 0, 1048577, 131079, 0, 1048576, 131079, 0, 1114111, 131079, 0, 1114114, 65543, 0, 1114113, 65543, 0, 1114112, 65543, 0, 1179647, 65543, 0)
 
 [node name="Tocha" parent="." unique_id=299999921 instance=ExtResource("12_k3n1d")]
 position = Vector2(-3, 321)
@@ -707,15 +708,21 @@ position = Vector2(-15, 233)
 position = Vector2(15, 228)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1064944741]
+position = Vector2(1, 14)
 ignore_rotation = false
 zoom = Vector2(4, 4)
 process_callback = 0
-limit_left = -9999980
-limit_top = 66
-limit_right = 143
-limit_bottom = 9999757
+limit_left = -9999959
+limit_top = 28
+limit_right = 164
+limit_bottom = 9999755
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 6.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1326093992]
+stream = ExtResource("18_ikiii")
+volume_db = -25.662
+autoplay = true

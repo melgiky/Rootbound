@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://hvhfdwjsit0f"]
 
 [ext_resource type="Script" uid="uid://btnt837auulqe" path="res://PLAYER/player.gd" id="1_w35dc"]
-[ext_resource type="Texture2D" uid="uid://682f3csdbkee" path="res://MELISSA/TOUPEIRA/toupeiraok.png" id="3_70r8v"]
-[ext_resource type="Texture2D" uid="uid://dni1q4av3i2si" path="res://MELISSA/TOUPEIRA/toupeira de pé direita.png" id="3_hurok"]
+[ext_resource type="Texture2D" uid="uid://682f3csdbkee" path="res://TOUPEIRA/toupeiraok.png" id="3_70r8v"]
+[ext_resource type="Texture2D" uid="uid://dni1q4av3i2si" path="res://TOUPEIRA/toupeira de pé direita.png" id="3_hurok"]
 [ext_resource type="Texture2D" uid="uid://dhnypxniayleh" path="res://TOUPEIRA/toupeiradano.png" id="3_kb6f3"]
-[ext_resource type="Texture2D" uid="uid://c5ah662cn2pkm" path="res://MELISSA/TOUPEIRA/toupeira run right.png" id="4_70r8v"]
+[ext_resource type="Texture2D" uid="uid://c5ah662cn2pkm" path="res://TOUPEIRA/toupeira run right.png" id="4_70r8v"]
 [ext_resource type="AudioStream" uid="uid://br0nkawstxdaf" path="res://MELISSA/AUDIO/edr-8-bit-jump-001-171817.mp3" id="5_8fulk"]
+[ext_resource type="Texture2D" uid="uid://bcum37ms4kpwk" path="res://TOUPEIRA/toupeira cavando pra baixo.png" id="5_ujede"]
 [ext_resource type="PackedScene" uid="uid://radjo7x18ucg" path="res://PLAYER/heartanimations.tscn" id="6_u4gk4"]
+[ext_resource type="Texture2D" uid="uid://deqldwaunl73u" path="res://TOUPEIRA/kill toupeira .png" id="6_y314m"]
+[ext_resource type="AudioStream" uid="uid://bgaykem07te5f" path="res://MELISSA/AUDIO/edr-video-game-hit-noise-001-135821.mp3" id="8_2pur7"]
 
 [sub_resource type="Animation" id="Animation_hurok"]
 length = 0.001
@@ -40,6 +43,18 @@ region = Rect2(32, 0, 32, 32)
 atlas = ExtResource("3_hurok")
 region = Rect2(0, 32, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vbcb"]
+atlas = ExtResource("5_ujede")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xupte"]
+atlas = ExtResource("5_ujede")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqn3i"]
+atlas = ExtResource("5_ujede")
+region = Rect2(0, 32, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_3736e"]
 atlas = ExtResource("3_kb6f3")
 region = Rect2(0, 0, 32, 32)
@@ -55,6 +70,30 @@ region = Rect2(32, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_y314m"]
 atlas = ExtResource("3_70r8v")
 region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1bja"]
+atlas = ExtResource("6_y314m")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fa7ba"]
+atlas = ExtResource("6_y314m")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usqo2"]
+atlas = ExtResource("6_y314m")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne25l"]
+atlas = ExtResource("6_y314m")
+region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dojts"]
+atlas = ExtResource("6_y314m")
+region = Rect2(64, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygkua"]
+atlas = ExtResource("6_y314m")
+region = Rect2(128, 32, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y4igl"]
 atlas = ExtResource("4_70r8v")
@@ -80,15 +119,29 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ujede")
 }],
-"loop": false,
+"loop": true,
 "name": &"cavar",
 "speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_8vbcb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xupte")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqn3i")
+}],
+"loop": true,
+"name": &"cavar_baixo",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_3736e")
 }],
-"loop": false,
+"loop": true,
 "name": &"dano",
 "speed": 12.0
 }, {
@@ -108,6 +161,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_a1bja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fa7ba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usqo2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ne25l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dojts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygkua")
+}],
+"loop": false,
+"name": &"morrer",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_y4igl")
 }, {
 "duration": 1.0,
@@ -121,10 +197,9 @@ animations = [{
 "speed": 3.0
 }]
 
-[node name="Player" type="CharacterBody2D" unique_id=1902257347]
+[node name="Player" type="CharacterBody2D" unique_id=1902257347 groups=["player"]]
 script = ExtResource("1_w35dc")
-walk_speed = 140.0
-run_speed = 198.148
+run_speed = 200.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1615528429]
 libraries/ = SubResource("AnimationLibrary_8fulk")
@@ -136,12 +211,16 @@ shape = SubResource("RectangleShape2D_70r8v")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=346378998]
 position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_u4gk4")
-animation = &"cavar"
+animation = &"morrer"
 autoplay = "idle"
 
 [node name="jump" type="AudioStreamPlayer" parent="." unique_id=1690071958]
 stream = ExtResource("5_8fulk")
 volume_db = -29.531
+
+[node name="damage" type="AudioStreamPlayer" parent="." unique_id=1595886370]
+stream = ExtResource("8_2pur7")
+volume_db = -17.558
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1902072137]
 

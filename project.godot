@@ -26,7 +26,6 @@ GlobalTools="*res://scripts/GlobalTools.gd"
 EffectsManager="*res://scripts/EffectsManager.gd"
 AudioManager="*res://scripts/AudioManager.gd"
 SignalManager="*res://scripts/SignalManager.gd"
-Bgmusic1="*uid://hhy2o3dd738y"
 
 [display]
 
@@ -34,6 +33,10 @@ window/size/viewport_width=1080
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 mouse_cursor/custom_image="res://resources/cursor.png"
+
+[global_group]
+
+player=""
 
 [input]
 
