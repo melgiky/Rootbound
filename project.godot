@@ -31,18 +31,25 @@ Dialogic="*uid://ds2q0uclmolvu"
 [dialogic]
 
 directories/dch_directory={
+"talpda": "res://DIALOGUES/talpda.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
-directories/dtl_directory={}
-layout/style_directory={}
+directories/dtl_directory={
+"timeline": "res://timeline.dtl"
+}
+layout/style_directory={
+"": "res://DIALOGUES/default.tres",
+"default": "res://DIALOGUES/default.tres"
+}
 glossary/default_case_sensitive=true
-layout/style_list=[]
-layout/default_style=""
+layout/style_list=["res://DIALOGUES/default.tres"]
+layout/default_style="res://DIALOGUES/default.tres"
 
 [display]
 
-window/size/viewport_width=1080
-window/size/viewport_height=1080
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/mode=3
 window/stretch/mode="canvas_items"
 mouse_cursor/custom_image="res://resources/cursor.png"
 

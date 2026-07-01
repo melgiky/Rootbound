@@ -14,8 +14,8 @@
 script = ExtResource("1_nfeq4")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1353305371]
-offset_right = 1130.0
-offset_bottom = 715.0
+offset_right = 1278.0
+offset_bottom = 774.0
 texture = ExtResource("2_w78xv")
 
 [node name="Control" type="Control" parent="." unique_id=644923575]
@@ -26,20 +26,20 @@ offset_bottom = 40.0
 
 [node name="iniciar" type="TextureButton" parent="Control" unique_id=1777150565]
 layout_mode = 0
-offset_left = 386.0
-offset_top = 281.0
-offset_right = 685.0
-offset_bottom = 416.0
+offset_left = 500.0
+offset_top = 271.0
+offset_right = 799.0
+offset_bottom = 406.0
 texture_normal = ExtResource("3_vlpc8")
 texture_pressed = ExtResource("4_f5b55")
 texture_hover = ExtResource("4_f5b55")
 
 [node name="sair" type="TextureButton" parent="Control" unique_id=1459228749]
 layout_mode = 0
-offset_left = 386.0
-offset_top = 408.0
-offset_right = 682.0
-offset_bottom = 543.0
+offset_left = 496.0
+offset_top = 418.0
+offset_right = 792.0
+offset_bottom = 553.0
 texture_normal = ExtResource("4_35yhv")
 texture_pressed = ExtResource("6_35yhv")
 texture_hover = ExtResource("6_35yhv")
@@ -48,10 +48,10 @@ texture_hover = ExtResource("6_35yhv")
 root_node = NodePath("")
 
 [node name="Rótulo" type="Label" parent="." unique_id=62526596]
-offset_left = 27.0
-offset_top = 641.0
-offset_right = 607.0
-offset_bottom = 669.0
+offset_left = 29.0
+offset_top = 684.0
+offset_right = 609.0
+offset_bottom = 712.0
 theme_override_fonts/font = ExtResource("6_cswfe")
 theme_override_font_sizes/font_size = 20
 text = "Projeto integrado 1 - Design de Jogos UFPel"
@@ -68,9 +68,9 @@ text = "RootBound"
 
 [node name="Título" type="Label" parent="Título" unique_id=960654277]
 layout_mode = 0
-offset_left = 10.0
+offset_left = 114.0
 offset_top = -13.0
-offset_right = 657.0
+offset_right = 761.0
 offset_bottom = 138.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_i0ot0")
