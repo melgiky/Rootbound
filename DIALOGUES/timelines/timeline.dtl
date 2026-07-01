@@ -1,0 +1,6 @@
+Talpida: hiowraeawedsa
+[wait time="2.0"]
+if {touching_border} == true:
+	Talpida: true
+else:
+	erro

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://oyk0maswrn7j"
-path="res://.godot/imported/talpidatest.jpg-a8ad12c30d11d588fa2d3f026403bee3.ctex"
+uid="uid://bgcpnqnm2rru7"
+path="res://.godot/imported/talpidatest.jpg-5a31fc70ff3887a08bc831b3fc58e6e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DIALOGUES/talpidatest.jpg"
-dest_files=["res://.godot/imported/talpidatest.jpg-a8ad12c30d11d588fa2d3f026403bee3.ctex"]
+source_file="res://DIALOGUES/characters/imagens/talpidatest.jpg"
+dest_files=["res://.godot/imported/talpidatest.jpg-5a31fc70ff3887a08bc831b3fc58e6e8.ctex"]
 
 [params]
 

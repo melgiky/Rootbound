@@ -8,7 +8,8 @@ const MINE_RANGE = 72.0
 
 func _ready():
 
-
+	print(Dialogic.VAR.touching_border)
+	
 	SignalManager.connect(
 		"SPAWN_BLOCK_PARTICLES",
 		spawn_block_particles
@@ -259,7 +260,7 @@ func spawn_block_particles(
 			start_collision
 		)
 
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		
 		Dialogic.start("timeline")

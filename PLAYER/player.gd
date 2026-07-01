@@ -57,6 +57,10 @@ var state = State.IDLE
 
 func _ready():
 
+	
+	if Dialogic.current_timeline!=null:
+		return
+
 	var hearts_parent = $CanvasLayer/HBoxContainer
 
 	for child in hearts_parent.get_children():
