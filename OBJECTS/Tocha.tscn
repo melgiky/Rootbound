@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://cyiala57j514r"]
+
+[ext_resource type="Texture2D" uid="uid://bvckcntrycwgx" path="res://MELISSA/torch_anim.png" id="1_gyfqj"]
+
+[sub_resource type="Animation" id="Animation_4eruo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_hgw23"]
+resource_name = "padraook"
+length = 0.9
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pi3y6"]
+_data = {
+&"RESET": SubResource("Animation_4eruo"),
+&"padraook": SubResource("Animation_hgw23")
+}
+
+[sub_resource type="Gradient" id="Gradient_k3n1d"]
+offsets = PackedFloat32Array(0.14150943, 0.754717)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4eruo"]
+gradient = SubResource("Gradient_k3n1d")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Tocha" type="Node2D" unique_id=1819812407]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2099714550]
+texture = ExtResource("1_gyfqj")
+hframes = 3
+vframes = 2
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1423914982]
+libraries/ = SubResource("AnimationLibrary_pi3y6")
+autoplay = &"padraook"
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=229388313]
+position = Vector2(2.842171e-14, -1.9999999)
+scale = Vector2(0.73828125, 0.71875006)
+color = Color(0.90103626, 0.89733386, 2.3102762e-06, 1)
+energy = 0.3
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_4eruo")
+
+[node name="PointLight2D2" type="PointLight2D" parent="PointLight2D2" unique_id=1827817372]
+position = Vector2(0.5276125, -0.78261054)
+scale = Vector2(0.4914486, 0.45923907)
+color = Color(0.90103626, 0.89733386, 2.3102762e-06, 1)
+energy = 0.5
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_4eruo")
