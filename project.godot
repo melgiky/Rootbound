@@ -32,11 +32,10 @@ Dialogic="*uid://ds2q0uclmolvu"
 
 directories/dch_directory={
 "Resources/unit_test_character": "res://DIALOGUES/Tests/Resources/unit_test_character.dch",
-"Talpida": "res://DIALOGUES/characters/Talpida.dch",
 "talpida": "res://DIALOGUES/characters/talpida.dch"
 }
 directories/dtl_directory={
-"timeline": "res://DIALOGUES/timelines/timeline.dtl"
+"timelines/timeline": "res://DIALOGUES/timelines/timeline.dtl"
 }
 layout/style_directory={
 "": "res://DIALOGUES/styles/default.tres",

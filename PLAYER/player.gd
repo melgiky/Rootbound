@@ -178,7 +178,9 @@ func handle_mining(delta):
 			state = State.IDLE
 
 		mine_timer = 0.0
-
+	
+	if not is_on_floor():
+		velocity.y += gravity * delta
 
 func mine():
 
@@ -193,6 +195,8 @@ func mine():
 		animated_sprite.flip_h = false
 
 	world.damage_block(mouse_pos)
+	
+
 
 
 func get_mine_direction():
