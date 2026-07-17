@@ -116,10 +116,10 @@ func die():
 
 	await animated_sprite.animation_finished
 	await get_tree().create_timer(2.0).timeout
+	Transitions.transition()
+	await Transitions.on_transition_finished
+	get_tree().change_scene_to_file("res://MENU/death_menu/game_over.tscn")
 
-	get_tree().change_scene_to_file(
-		"res://MENU/MENU.tscn"
-	)
 
 
 # ==========================================

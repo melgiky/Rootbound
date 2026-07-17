@@ -7,5 +7,5 @@ func _ready() -> void:
 	interaction_area.interact = Callable(self, "_on_interact")
 
 func _on_interact():
-	Dialogic.start("placa_aviso")
+	Dialogic.start("placa_espinho")
 	await Dialogic.timeline_ended

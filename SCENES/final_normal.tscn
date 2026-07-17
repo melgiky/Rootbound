@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://coon6rikhspeb"]
+
+[ext_resource type="Script" uid="uid://bttwt05x3udb0" path="res://SCENES/final_normal.gd" id="1_m5ltl"]
+[ext_resource type="FontFile" uid="uid://dftbdl3uf1cvd" path="res://resources/fonts/Px437_IBM_XGA-AI_7x15.ttf" id="2_7b3vl"]
+[ext_resource type="FontFile" uid="uid://8lg5x1ra5hre" path="res://resources/fonts/KiwiSoda.ttf" id="3_7b3vl"]
+
+[node name="final_normal" type="Node2D" unique_id=1324926155]
+script = ExtResource("1_m5ltl")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1619402230]
+position = Vector2(640, 358)
+
+[node name="Control" type="Control" parent="." unique_id=1947100161]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1286.0
+offset_bottom = 727.0
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1970317785]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Título2" type="Label" parent="Control" unique_id=1428733966]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 168.0
+offset_right = 8969.0
+offset_bottom = 591.0
+localize_numeral_system = false
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_7b3vl")
+theme_override_font_sizes/font_size = 49
+text = "Talpida reencontra Geb são e salvo. A raposa está parada
+atrás dele, parecendo triste. Vulpes pede desculpas, e
+sem dar mais explicações, apenas sai correndo. Geb tenta
+ explicar para a mãe que a raposa não os machucou, e 
+parecia amigável, mas Talpida não acreditou. Com os dois 
+filhos ao seu lado, a família retorna para casa, deixando
+para trás o medo e a difícil jornada pelos túneis."
+autowrap_trim_flags = 0
+justification_flags = 0
+
+[node name="Título3" type="Label" parent="Control" unique_id=1196296389]
+layout_mode = 0
+offset_left = 474.0
+offset_top = 32.0
+offset_right = 823.0
+offset_bottom = 183.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("3_7b3vl")
+theme_override_font_sizes/font_size = 130
+text = "Final 1"
+
+[node name="espaço_para_pular" type="Label" parent="." unique_id=633577153]
+offset_left = 668.0
+offset_top = 628.0
+offset_right = 1265.0
+offset_bottom = 779.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("3_7b3vl")
+theme_override_font_sizes/font_size = 50
+text = "Aperte espaço para avançar."

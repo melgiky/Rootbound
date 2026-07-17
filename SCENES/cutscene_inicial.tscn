@@ -4,17 +4,18 @@
 [ext_resource type="VideoStream" uid="uid://d3byltkqj7ahd" path="res://MELISSA/AUDIO/trabalho-da-melissa.ogv" id="2_dyjgx"]
 [ext_resource type="AudioStream" uid="uid://ctunhuyef504k" path="res://MELISSA/AUDIO/serious.mp3" id="3_s6aem"]
 [ext_resource type="AudioStream" uid="uid://dy6vboly27b4y" path="res://MELISSA/AUDIO/forest.mp3" id="4_urmox"]
+[ext_resource type="FontFile" uid="uid://8lg5x1ra5hre" path="res://resources/fonts/KiwiSoda.ttf" id="5_urmox"]
 
 [node name="Cutscene_inicial" type="Node2D" unique_id=92198376]
 script = ExtResource("1_ld567")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=2000915641]
 layout_direction = 4
-offset_left = -34.999996
-offset_top = -34.999996
-offset_right = 1885.0
-offset_bottom = 1045.0
-scale = Vector2(0.7, 0.7)
+offset_left = -8.0
+offset_top = 2.0
+offset_right = 1912.0
+offset_bottom = 1082.0
+scale = Vector2(0.67, 0.67)
 size_flags_horizontal = 10
 stream = ExtResource("2_dyjgx")
 
@@ -29,3 +30,15 @@ stream = ExtResource("4_urmox")
 volume_db = -10.0
 autoplay = true
 parameters/looping = true
+
+[node name="espaço_para_pular" type="Label" parent="." unique_id=464894821]
+offset_left = 717.0
+offset_top = 16.0
+offset_right = 1314.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("5_urmox")
+theme_override_font_sizes/font_size = 50
+text = "Aperte espaço para pular."

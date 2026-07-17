@@ -64,6 +64,7 @@ text = "Projeto integrado 1 - Design de Jogos UFPel"
 [node name="BGMusicMenu" type="AudioStreamPlayer" parent="." unique_id=338894507]
 stream = ExtResource("6_fligk")
 autoplay = true
+parameters/looping = true
 
 [node name="Título2" type="Label" parent="." unique_id=960654277]
 offset_left = 313.0

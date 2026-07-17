@@ -242,6 +242,7 @@ volume_db = -17.558
 
 [node name="game_over" type="AudioStreamPlayer" parent="." unique_id=864074151]
 stream = ExtResource("10_y4igl")
+volume_db = -9.455
 
 [node name="collect_sound" type="AudioStreamPlayer" parent="." unique_id=432964470]
 stream = ExtResource("11_y2hgb")

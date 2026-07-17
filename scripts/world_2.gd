@@ -288,3 +288,19 @@ func update_block_selector():
 
 func _process(delta):
 	update_block_selector()
+
+
+func _on_dialog_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		Dialogic.start_timeline("borda")
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		if (Gamestate.fruits<6):
+			Transitions.transition()
+			Transitions.on_transition_finished
+			get_tree().change_scene_to_file("res://SCENES/final_normal.tscn")
+		if (Gamestate.fruits==6):
+			Transitions.transition()
+			Transitions.on_transition_finished

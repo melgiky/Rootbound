@@ -40,8 +40,10 @@ directories/dch_directory={
 "caderno do geb": "res://DIALOGUES/characters/caderno do geb.dch"
 }
 directories/dtl_directory={
+"borda": "res://DIALOGUES/timelines/borda.dtl",
 "falar_com_gaia": "res://DIALOGUES/timelines/falar_com_gaia.dtl",
 "placa_aviso": "res://DIALOGUES/timelines/placa_aviso.dtl",
+"placa_espinhos": "res://DIALOGUES/timelines/placa_espinhos.dtl",
 "timeline": "res://DIALOGUES/timelines/timeline.dtl",
 "timeline2": "res://DIALOGUES/timelines/timeline2.dtl"
 }
@@ -158,6 +160,11 @@ interact={
 down={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":115,"location":0,"echo":false,"script":null)
+]
+}
+skip={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
 ]
 }
 

@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://sshksuqvovf2"]
+
+[ext_resource type="Script" uid="uid://drqwx3fl4xi2u" path="res://SCENES/lvl_1_lvl_2.gd" id="1_0eq7y"]
+[ext_resource type="FontFile" uid="uid://dftbdl3uf1cvd" path="res://resources/fonts/Px437_IBM_XGA-AI_7x15.ttf" id="1_g6wxg"]
+[ext_resource type="FontFile" uid="uid://8lg5x1ra5hre" path="res://resources/fonts/KiwiSoda.ttf" id="3_yi6r0"]
+
+[node name="lvl1_lvl2" type="Node2D" unique_id=767833460]
+script = ExtResource("1_0eq7y")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1594566201]
+position = Vector2(640, 358)
+
+[node name="Control" type="Control" parent="." unique_id=1177067374]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1286.0
+offset_bottom = 727.0
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=2026855842]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Título2" type="Label" parent="Control" unique_id=2054436891]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 160.0
+offset_right = 1229.0
+offset_bottom = 529.0
+localize_numeral_system = false
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_g6wxg")
+theme_override_font_sizes/font_size = 51
+text = "Talpida encontra Gaia bem no fundo da caverna, 
+chorando,  sem nenhum arranhão, agarrando firmemente
+ seu coelhinho de pelúcia. Depois de verificar que
+ realmente a sua filha estava bem, Talpida e Gaia
+ partem em busca do irmão. As duas cavam tanto
+ que chegam em um bioma de gelo."
+autowrap_trim_flags = 0
+justification_flags = 0
+
+[node name="espaço_para_pular" type="Label" parent="Control" unique_id=1332278591]
+layout_mode = 0
+offset_left = 668.0
+offset_top = 628.0
+offset_right = 1265.0
+offset_bottom = 779.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("3_yi6r0")
+theme_override_font_sizes/font_size = 50
+text = "Aperte espaço para avançar."

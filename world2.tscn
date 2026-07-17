@@ -8,20 +8,23 @@
 [ext_resource type="Texture2D" uid="uid://cbc10vnhn0gda" path="res://MELISSA/ice_biome/ice_biome_mixed.png" id="6_euqk1"]
 [ext_resource type="Texture2D" uid="uid://dpgo85ecrfafm" path="res://MELISSA/Pixel_Woods_Tileset.png" id="11_8xah1"]
 [ext_resource type="Texture2D" uid="uid://buyecuyo1xadl" path="res://MELISSA/grass_biome/grass_biome_mixed.png" id="12_6rhgk"]
+[ext_resource type="AudioStream" uid="uid://c4f10xgxs8uyh" path="res://MELISSA/AUDIO/ice_level.mp3" id="12_kamru"]
 [ext_resource type="Texture2D" uid="uid://dj6dy46us4slg" path="res://MELISSA/terra.png" id="13_fcpgx"]
 [ext_resource type="Texture2D" uid="uid://v4b8yp73mt5" path="res://TILESETS/map_dirt_no_border.png" id="14_lmx4r"]
 [ext_resource type="TileSet" uid="uid://dn3wgdu8s8bt2" path="res://TILESETS/map (2)/tileset.tres" id="15_d5rlc"]
+[ext_resource type="PackedScene" uid="uid://bnpjydsd7kd2g" path="res://SCENES/timer.tscn" id="15_kamru"]
 [ext_resource type="PackedScene" uid="uid://chk65ilo3n3kc" path="res://SCENES/falling_spike.tscn" id="18_euqk1"]
 [ext_resource type="Texture2D" uid="uid://0e8tmojo13am" path="res://resources/Geb.sprite.png" id="18_iykvk"]
 [ext_resource type="PackedScene" uid="uid://hvhfdwjsit0f" path="res://PLAYER/Player.tscn" id="18_t0og2"]
 [ext_resource type="PackedScene" uid="uid://b0ay7vfudnnpx" path="res://OBJECTS/Espinho.tscn" id="19_i3tck"]
 [ext_resource type="Script" uid="uid://cpyi8ck08u1xn" path="res://scripts/camera_2d.gd" id="19_imb2y"]
-[ext_resource type="AudioStream" uid="uid://oblyem2yc3im" path="res://MELISSA/AUDIO/freesound_community-centaur-forest-60695.mp3" id="20_5l2cp"]
 [ext_resource type="PackedScene" uid="uid://m3fucm4d6q24" path="res://SCENES/espinho_teto.tscn" id="20_08qns"]
 [ext_resource type="PackedScene" uid="uid://m4bebafdcugb" path="res://COISAS/Berries.tscn" id="20_ryt4s"]
 [ext_resource type="Texture2D" uid="uid://0y2hghbpummn" path="res://resources/mouse_mine.png" id="21_1ipmq"]
 [ext_resource type="PackedScene" uid="uid://bgxo54doju3u" path="res://COISAS/espinhotriplo.tscn" id="21_kamru"]
 [ext_resource type="PackedScene" uid="uid://bh3wp4myxvb88" path="res://SCENES/fruits.tscn" id="22_act6n"]
+[ext_resource type="PackedScene" uid="uid://2ksgu0jowvm5" path="res://SCENES/placa_gelo.tscn" id="24_aahbd"]
+[ext_resource type="Texture2D" uid="uid://di23ljntc4suv" path="res://resources/raposaok.png" id="25_tx3uu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ipbn"]
 texture = ExtResource("11_8xah1")
@@ -463,6 +466,12 @@ fill_to = Vector2(0.2, 0.07647059)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kamru"]
 size = Vector2(21, 108)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aahbd"]
+size = Vector2(10, 98)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dvv3y"]
+radius = 44.04543
+
 [node name="World2" type="Node2D" unique_id=735903375]
 script = ExtResource("1_qbvih")
 
@@ -613,8 +622,8 @@ script = ExtResource("4_nxl23")
 [node name="CanvasLayer3" type="CanvasLayer" parent="." unique_id=874331271]
 
 [node name="Blocosbonitos" type="TileMapLayer" parent="." unique_id=680111571]
-modulate = Color(1.4044276, 4.480419, 4.4880605, 1)
-tile_map_data = PackedByteArray("AAD5/w4AAAALAAYAAAA=")
+modulate = Color(1.404, 4.48, 4.488, 1)
+tile_map_data = PackedByteArray("AAD5/w4AAAALAAYAAAC7/xUAAAAQAAsAAAC7/xYAAAAQAAwAAAC8/xUAAAARAAsAAAC8/xYAAAARAAwAAADQ/xYAAAAKAAkAAADS/xYAAAAMAAkAAADH/xYAAAAPAAkAAADA/xYAAAANAAkAAADB/xYAAAAOAAkAAACu/xYAAAANAAkAAACv/xYAAAAOAAkAAACr/xYAAAAKAAkAAACs/xUAAAALAAgAAACs/xYAAAALAAkAAACt/xUAAAAMAAgAAACt/xYAAAAMAAkAAADR/xUAAAALAAgAAADR/xYAAAALAAkAAADS/xUAAAAMAAgAAAC//zUAAAAKAAkAAADA/zQAAAALAAgAAADA/zUAAAALAAkAAADB/zQAAAAMAAgAAADB/zUAAAAMAAkAAADC/zUAAAANAAkAAADD/zUAAAAOAAkAAADL/zUAAAANAAkAAADM/zUAAAAOAAkAAADb/zUAAAANAAkAAADc/zUAAAAOAAkAAADg/ycAAAANAAkAAADh/ycAAAAOAAkAAADj/ycAAAANAAkAAADk/ycAAAAOAAkAAADp/1MAAAANAAkAAADq/1MAAAAOAAkAAADa/1MAAAANAAkAAADb/1MAAAAOAAkAAADY/1AAAAANAAkAAADZ/1AAAAAOAAkAAADR/04AAAANAAkAAADS/04AAAAOAAkAAADX/1AAAAAPAAkAAADU/04AAAAPAAkAAADd/2QAAAAKAAgAAADd/2UAAAAKAAkAAADe/2QAAAALAAgAAADe/2UAAAALAAkAAADf/2QAAAAMAAgAAADf/2UAAAAMAAkAAADP/2QAAAAKAAgAAADP/2UAAAAKAAkAAADQ/2QAAAALAAgAAADQ/2UAAAALAAkAAADR/2QAAAAMAAgAAADR/2UAAAAMAAkAAADK/1wAAAAKAAgAAADK/10AAAAKAAkAAADL/1wAAAALAAgAAADL/10AAAALAAkAAADM/1wAAAAMAAgAAADM/10AAAAMAAkAAADo/2QAAAAKAAgAAADo/2UAAAAKAAkAAADp/2QAAAALAAgAAADp/2UAAAALAAkAAADq/2QAAAAMAAgAAADq/2UAAAAMAAkAAADJ/2QAAAAKAAgAAADJ/2UAAAAKAAkAAADK/2QAAAALAAgAAADK/2UAAAALAAkAAADL/2QAAAAMAAgAAADL/2UAAAAMAAkAAAC//2QAAAAKAAgAAAC//2UAAAAKAAkAAADA/2QAAAALAAgAAADA/2UAAAALAAkAAADB/2QAAAAMAAgAAADB/2UAAAAMAAkAAAC//1QAAAAKAAgAAAC//1UAAAAKAAkAAADA/1QAAAALAAgAAADA/1UAAAALAAkAAADB/1QAAAAMAAgAAADB/1UAAAAMAAkAAADF/1EAAAAKAAgAAADF/1IAAAAKAAkAAADG/1EAAAALAAgAAADG/1IAAAALAAkAAADH/1EAAAAMAAgAAADH/1IAAAAMAAkAAAC1/04AAAAKAAgAAAC1/08AAAAKAAkAAAC2/04AAAALAAgAAAC2/08AAAALAAkAAAC3/04AAAAMAAgAAAC3/08AAAAMAAkAAAC9/1YAAAANAAkAAAC+/1YAAAAOAAkAAAC2/1kAAAANAAkAAAC3/1kAAAAOAAkAAAC8/14AAAANAAkAAAC9/14AAAAOAAkAAADq/04AAAAPAAkAAADq/yUAAAAPAAkAAADl/yAAAAANAAkAAADm/yAAAAAOAAkAAADn/yAAAAAPAAkAAADq/x0AAAANAAkAAADr/x0AAAAOAAkAAADs/x0AAAAPAAkAAACx/xUAAAAQAAgAAACx/xYAAAAQAAkAAACy/xUAAAARAAgAAAA=")
 tile_set = SubResource("TileSet_emnld")
 
 [node name="Blocoscomuns" type="TileMapLayer" parent="." unique_id=1800514447]
@@ -630,9 +639,10 @@ format = 2
 layer_0/tile_data = PackedInt32Array(2686950, 65538, 0, 2686951, 196610, 0, 2686952, 65538, 0, 2686953, 196610, 0, 2686954, 2, 0, 3080168, 131074, 0, 3080167, 196610, 0, 3080166, 131074, 0, 3014634, 196610, 0, 3014633, 2, 0, 3014632, 131074, 0, 3014631, 65538, 0, 3014630, 196610, 0, 2752486, 65538, 0, 2752487, 196610, 0, 2752488, 131074, 0, 2752489, 131074, 0, 2752490, 65538, 0, 3080170, 196610, 0, 3080169, 196610, 0, 2818024, 196610, 0, 2883560, 196610, 0, 2883559, 196610, 0, 2949095, 196610, 0, 2818023, 196610, 0, 2818022, 196610, 0, 2883558, 196610, 0, 2949094, 196610, 0, 2949096, 196610, 0, 2949097, 196610, 0, 2883561, 196610, 0, 2818025, 196610, 0, 2818026, 196610, 0, 2883562, 196610, 0, 2949098, 196610, 0, 3604445, 131074, 0, 3604446, 196610, 0, 3604447, 65538, 0, 3604448, 131074, 0, 3604449, 131074, 0, 3669985, 2, 0, 3669984, 131074, 0, 3669983, 2, 0, 3669982, 196610, 0, 3669981, 131074, 0, 4194267, 2, 0, 4128731, 65538, 0, 4128732, 196610, 0, 4194268, 2, 0, 4259804, 196610, 0, 4325340, 131074, 0, 4325339, 65538, 0, 4259803, 131074, 0, 3604410, 196610, 0, 3604411, 2, 0, 3604409, 196610, 0, 3604408, 131074, 0, 3604407, 131074, 0, 3669943, 2, 0, 3669944, 2, 0, 3669945, 196610, 0, 3669946, 2, 0, 3669947, 2, 0, 4980670, 196610, 0, 5046206, 196610, 0, 5111742, 2, 0, 5177278, 131074, 0, 5242814, 65538, 0, 5242815, 65538, 0, 5177279, 196610, 0, 5111743, 131074, 0, 5046207, 2, 0, 4980671, 131074, 0, 6291411, 65538, 0, 6291412, 131074, 0, 6291413, 131074, 0, 6291414, 196610, 0, 6422496, 2, 0, 6356960, 196610, 0, 6488032, 196610, 0, 6553568, 131074, 0, 6619104, 2, 0, 6684640, 196610, 0, 6684639, 196610, 0, 6619103, 65538, 0, 6553567, 131074, 0, 6488031, 196610, 0, 6422495, 2, 0, 6356959, 65538, 0, 1179577, 65538, 0, 1245113, 2, 0, 1441721, 131074, 0, 1507257, 65538, 0, 1310649, 65538, 0, 1376185, 131074, 0, 1245112, 2, 0, 1310648, 196610, 0, 1376184, 131074, 0, 1441720, 131074, 0, 1507256, 196610, 0, 1179576, 2, 0)
 
 [node name="Player" parent="." unique_id=1902257347 instance=ExtResource("18_t0og2")]
-position = Vector2(-1203, 346)
+position = Vector2(-1290, 348)
 
 [node name="PointLight2D3" type="PointLight2D" parent="Player" unique_id=22767785]
+visible = false
 position = Vector2(-0.9999943, -1.9073486e-06)
 scale = Vector2(0.36718756, 0.36328134)
 editor_only = true
@@ -642,15 +652,16 @@ texture = SubResource("GradientTexture2D_vqopn")
 texture_scale = 4.0
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1660772918]
+visible = false
 position = Vector2(1, 0)
 scale = Vector2(3, 3)
 ignore_rotation = false
 zoom = Vector2(4, 4)
 process_callback = 0
-limit_left = -9998471
-limit_top = -987
-limit_right = 1332
-limit_bottom = 9998892
+limit_left = -1417
+limit_top = 232
+limit_right = -274
+limit_bottom = 1690
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 6.0
@@ -659,9 +670,10 @@ editor_draw_drag_margin = true
 script = ExtResource("19_imb2y")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=808890694]
-stream = ExtResource("20_5l2cp")
-volume_db = -25.662
+stream = ExtResource("12_kamru")
+volume_db = -15.0
 autoplay = true
+parameters/looping = true
 
 [node name="BlockSelector" type="Sprite2D" parent="." unique_id=278162329]
 texture = ExtResource("21_1ipmq")
@@ -674,8 +686,10 @@ anchor_left = 0.86
 anchor_top = 0.04
 anchor_right = 1.0
 anchor_bottom = 0.067
-offset_left = -40.0
-offset_bottom = 40.0
+offset_left = -136.80005
+offset_top = 5.200001
+offset_right = -96.80005
+offset_bottom = 45.2
 grow_horizontal = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer2/Control" unique_id=1615567573]
@@ -689,9 +703,15 @@ theme_override_constants/separation = 80
 [node name="Fruits" parent="CanvasLayer2/Control/HBoxContainer" unique_id=115141148 instance=ExtResource("22_act6n")]
 layout_mode = 2
 
+[node name="timer" parent="CanvasLayer2/Control/HBoxContainer" unique_id=1042980348 instance=ExtResource("15_kamru")]
+layout_mode = 2
+
 [node name="Frutinhas" type="Node2D" parent="." unique_id=161222084]
 
-[node name="Berries" parent="Frutinhas" unique_id=1850734322 instance=ExtResource("20_ryt4s")]
+[node name="Berries4" parent="Frutinhas" unique_id=1850734322 instance=ExtResource("20_ryt4s")]
+position = Vector2(-692, 831)
+
+[node name="Berries" parent="Frutinhas" unique_id=553413955 instance=ExtResource("20_ryt4s")]
 position = Vector2(-573, 446)
 
 [node name="Berries3" parent="Frutinhas" unique_id=362910256 instance=ExtResource("20_ryt4s")]
@@ -822,20 +842,51 @@ position = Vector2(-780, 720)
 position = Vector2(-847, 1142)
 
 [node name="penguin_patrol4" parent="Inimigos" unique_id=639222653 instance=ExtResource("3_ryt4s")]
-position = Vector2(-674, 1318)
+position = Vector2(-349, 1319)
 
 [node name="Zoom de objeto" parent="." unique_id=590583838 node_paths=PackedStringArray("alvo") instance=ExtResource("2_ryt4s")]
-position = Vector2(-1204, 328)
+position = Vector2(-1291, 327)
 alvo = NodePath("../Geb")
+tempo_movimento = 5.0
+tempo_foco = 1.0
+tempo_zoom = 1.0
 
 [node name="Geb" type="Sprite2D" parent="." unique_id=1657406343]
-position = Vector2(-415, 1610)
+position = Vector2(-436, 1610)
 texture = ExtResource("18_iykvk")
 
 [node name="Barreira" type="Node2D" parent="." unique_id=715781229]
 
-[node name="fisica" type="Area2D" parent="Barreira" unique_id=1622217101]
+[node name="dialog" type="Area2D" parent="Barreira" unique_id=1622217101]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Barreira/fisica" unique_id=1062882325]
-position = Vector2(-1269.5, 321)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barreira/dialog" unique_id=1062882325]
+position = Vector2(-1345, 318)
 shape = SubResource("RectangleShape2D_kamru")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=771730697]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=580147697]
+position = Vector2(-1344, 319)
+shape = SubResource("RectangleShape2D_aahbd")
+
+[node name="level_timer" type="Timer" parent="." unique_id=170311432]
+wait_time = 300.0
+one_shot = true
+autostart = true
+
+[node name="placa_gelo" parent="." unique_id=1968201171 instance=ExtResource("24_aahbd")]
+position = Vector2(-1089, 346)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1556982915]
+position = Vector2(-408, 1609)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1244159901]
+position = Vector2(-12, -6)
+shape = SubResource("CircleShape2D_dvv3y")
+
+[node name="Vulpes" type="Sprite2D" parent="." unique_id=130833367]
+position = Vector2(-408, 1609)
+texture = ExtResource("25_tx3uu")
+
+[connection signal="body_entered" from="Barreira/dialog" to="." method="_on_dialog_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
