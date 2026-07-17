@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DialogicStyle" format=3 uid="uid://ocv5b4eubarg"]
+
+[ext_resource type="Script" uid="uid://bwg6yncmh2cml" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_aedx5"]
+[ext_resource type="Script" uid="uid://dv08k6ljua6fm" path="res://addons/dialogic/Resources/dialogic_style.gd" id="2_mnox3"]
+
+[sub_resource type="Resource" id="Resource_ha72f"]
+script = ExtResource("1_aedx5")
+
+[resource]
+script = ExtResource("2_mnox3")
+name = "trying"
+layer_info = {
+"": SubResource("Resource_ha72f")
+}
+metadata/_latest_layer = ""

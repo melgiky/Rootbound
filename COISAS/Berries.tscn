@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://m4bebafdcugb"]
+
+[ext_resource type="Script" uid="uid://cfcigmw34o83i" path="res://scripts/berries.gd" id="1_xiivb"]
+[ext_resource type="Texture2D" uid="uid://dtrx3tlewjy0l" path="res://resources/berries_idle.png" id="2_xiivb"]
+[ext_resource type="Texture2D" uid="uid://c50o0lhg5y8j0" path="res://resources/berries_shine.png" id="3_bhrf7"]
+[ext_resource type="AudioStream" uid="uid://dd0dilu1i3nxo" path="res://MELISSA/AUDIO/berries_near.mp3" id="4_ot27y"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ot27y"]
+
+[sub_resource type="Gradient" id="Gradient_ot27y"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_brwx7"]
+gradient = SubResource("Gradient_ot27y")
+fill = 1
+fill_from = Vector2(0.5, 0.46470588)
+fill_to = Vector2(0.7705882, 0.05882353)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_brwx7"]
+radius = 8.062258
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhrf7"]
+atlas = ExtResource("2_xiivb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ot27y"]
+atlas = ExtResource("2_xiivb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brwx7"]
+atlas = ExtResource("2_xiivb")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgc4j"]
+atlas = ExtResource("2_xiivb")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpn61"]
+atlas = ExtResource("2_xiivb")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3eobu"]
+atlas = ExtResource("3_bhrf7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oe1tn"]
+atlas = ExtResource("3_bhrf7")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6ijp"]
+atlas = ExtResource("3_bhrf7")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7j4rv"]
+atlas = ExtResource("3_bhrf7")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frpyu"]
+atlas = ExtResource("3_bhrf7")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xiivb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhrf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ot27y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brwx7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgc4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpn61")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3eobu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oe1tn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6ijp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7j4rv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frpyu")
+}],
+"loop": true,
+"name": &"shine",
+"speed": 5.0
+}]
+
+[node name="Berries" type="StaticBody2D" unique_id=1850734322 groups=["collectable"]]
+light_mask = 7
+visibility_layer = 7
+collision_layer = 4
+collision_mask = 4
+physics_material_override = SubResource("PhysicsMaterial_ot27y")
+script = ExtResource("1_xiivb")
+shine_distance = 100
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=811675519]
+color = Color(1, 0.97247535, 0.32623386, 1)
+texture = SubResource("GradientTexture2D_brwx7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1972059178]
+shape = SubResource("CircleShape2D_brwx7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1887696576]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(1, -1)
+scale = Vector2(0.8, 0.71)
+sprite_frames = SubResource("SpriteFrames_xiivb")
+animation = &"shine"
+autoplay = "idle"
+frame_progress = 0.8426307
+
+[node name="shine" type="AudioStreamPlayer2D" parent="." unique_id=1282912404]
+stream = ExtResource("4_ot27y")
+volume_db = -14.0
+parameters/looping = true

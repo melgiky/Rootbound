@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://deqldwaunl73u" path="res://TOUPEIRA/kill toupeira .png" id="6_y314m"]
 [ext_resource type="AudioStream" uid="uid://bgaykem07te5f" path="res://MELISSA/AUDIO/edr-video-game-hit-noise-001-135821.mp3" id="8_2pur7"]
 [ext_resource type="AudioStream" uid="uid://o1kv158peoyg" path="res://MELISSA/AUDIO/lesiakower-8-bit-game-over-sound-effect-331435.mp3" id="10_y4igl"]
+[ext_resource type="AudioStream" uid="uid://bvxjqylsjjgqr" path="res://MELISSA/AUDIO/collect_sound.mp3" id="11_y2hgb"]
 
 [sub_resource type="Animation" id="Animation_hurok"]
 length = 0.001
@@ -30,7 +31,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_70r8v"]
-size = Vector2(23, 21)
+size = Vector2(19, 19.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2hgb"]
+size = Vector2(21, 20.75)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u4gk4"]
 atlas = ExtResource("3_hurok")
@@ -199,20 +203,33 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=1902257347 groups=["player"]]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_w35dc")
-run_speed = 200.0
+run_speed = 170.0
+jump_force = -310
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1615528429]
 libraries/ = SubResource("AnimationLibrary_8fulk")
 autoplay = &"idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1388387884]
+[node name="Area2D" type="Area2D" parent="." unique_id=883549758]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1967564020]
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_70r8v")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1388387884]
+position = Vector2(-0.5, 0.625)
+shape = SubResource("RectangleShape2D_y2hgb")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=346378998]
+modulate = Color(0.60933006, 0.6093302, 0.60932994, 1)
 position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_u4gk4")
-animation = &"run"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="jump" type="AudioStreamPlayer" parent="." unique_id=1690071958]
@@ -225,6 +242,10 @@ volume_db = -17.558
 
 [node name="game_over" type="AudioStreamPlayer" parent="." unique_id=864074151]
 stream = ExtResource("10_y4igl")
+
+[node name="collect_sound" type="AudioStreamPlayer" parent="." unique_id=432964470]
+stream = ExtResource("11_y2hgb")
+volume_db = -4.052
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1902072137]
 
@@ -271,3 +292,5 @@ layout_mode = 2
 [node name="Heartanimations" parent="CanvasLayer/HBoxContainer/heart5" unique_id=883764038 instance=ExtResource("6_u4gk4")]
 position = Vector2(24, 23)
 scale = Vector2(1.5, 1.5)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -17,7 +17,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var jump: AudioStreamPlayer = $jump
 @onready var damage: AudioStreamPlayer = $damage
 @onready var game_over: AudioStreamPlayer = $game_over
+@onready var collect_sound: AudioStreamPlayer = $collect_sound
 @onready var world = get_parent()
+@onready var game_manager: Node = $"../GameManager"
+@onready var camera_2d: Camera2D = $Camera2D
 
 var is_dead = false
 
@@ -57,10 +60,6 @@ var state = State.IDLE
 
 func _ready():
 
-	
-	if Dialogic.current_timeline!=null:
-		return
-
 	var hearts_parent = $CanvasLayer/HBoxContainer
 
 	for child in hearts_parent.get_children():
@@ -88,7 +87,7 @@ func _physics_process(delta):
 
 	update_animation()
 	move_and_slide()
-
+	update_camera()
 
 # ==========================================
 # BASIC
@@ -241,7 +240,7 @@ func handle_movement(delta):
 	var speed = run_speed if Input.is_action_pressed("run") else walk_speed
 	var direction := Input.get_axis("left","right")
 
-
+	
 	if direction:
 
 		state = State.RUN
@@ -263,8 +262,6 @@ func handle_movement(delta):
 			0,
 			walk_speed * decelleration
 		)
-
-
 # ==========================================
 # ANIMATION
 # ==========================================
@@ -347,3 +344,27 @@ func update_heart_display():
 
 	elif health > 1:
 		heart_anim.play("idle")
+
+
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("collectable"):
+		collect_sound.play()
+		game_manager.add_fruits()
+		body.collect()
+		
+func update_camera():
+
+	if is_on_floor() \
+	and abs(velocity.x) < 1 \
+	and Input.is_action_pressed("down"):
+
+		camera_2d.look_down()
+
+	else:
+		camera_2d.look_normal()
+
+func bounce(force := 300.0):
+
+	velocity.y = -force

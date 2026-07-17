@@ -62,16 +62,18 @@ libraries/ = SubResource("AnimationLibrary_pi3y6")
 autoplay = &"padraook"
 
 [node name="PointLight2D2" type="PointLight2D" parent="." unique_id=229388313]
+light_mask = 2
 position = Vector2(2.842171e-14, -1.9999999)
 scale = Vector2(0.73828125, 0.71875006)
 color = Color(0.90103626, 0.89733386, 2.3102762e-06, 1)
-energy = 0.8
-range_item_cull_mask = 3
+energy = 1.2
 texture = SubResource("GradientTexture2D_4eruo")
 
 [node name="PointLight2D2" type="PointLight2D" parent="PointLight2D2" unique_id=1827817372]
+light_mask = 2
 position = Vector2(0.5276125, -0.78261054)
 scale = Vector2(0.4914486, 0.45923907)
 color = Color(0.90103626, 0.89733386, 2.3102762e-06, 1)
 range_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_4eruo")
+texture_scale = 1.4

@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://cyc5wrlneuha6"]
+
+[ext_resource type="Script" uid="uid://c0slqeac5sjtn" path="res://scripts/cobra.gd" id="1_1ipfo"]
+[ext_resource type="Texture2D" uid="uid://cw06f4isvrjqa" path="res://resources/verme.png" id="2_odojx"]
+[ext_resource type="Texture2D" uid="uid://biajqp1yknmj3" path="res://resources/explosion.png" id="3_qpx0w"]
+[ext_resource type="AudioStream" uid="uid://dna1p7sdglbp2" path="res://MELISSA/AUDIO/snake_die.mp3" id="4_qpx0w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy52y"]
+atlas = ExtResource("2_odojx")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpx0w"]
+atlas = ExtResource("2_odojx")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itwgq"]
+atlas = ExtResource("2_odojx")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdafn"]
+atlas = ExtResource("2_odojx")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_huy1a"]
+atlas = ExtResource("2_odojx")
+region = Rect2(0, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ijy7"]
+atlas = ExtResource("2_odojx")
+region = Rect2(48, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_duqe3"]
+atlas = ExtResource("3_qpx0w")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22cpi"]
+atlas = ExtResource("3_qpx0w")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gboe4"]
+atlas = ExtResource("3_qpx0w")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nm3u4"]
+atlas = ExtResource("2_odojx")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_duqe3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qy52y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpx0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_itwgq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdafn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_huy1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ijy7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_duqe3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22cpi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gboe4")
+}],
+"loop": false,
+"name": &"die",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nm3u4")
+}],
+"loop": true,
+"name": &"sleep",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_22cpi"]
+size = Vector2(25, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_odojx"]
+size = Vector2(7.5, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gboe4"]
+size = Vector2(31, 11)
+
+[node name="Cobra" type="CharacterBody2D" unique_id=292760810]
+script = ExtResource("1_1ipfo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=782414232]
+position = Vector2(-3, -4)
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_duqe3")
+animation = &"sleep"
+autoplay = "sleep"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=373233464]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=924769318]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_22cpi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=410710028]
+position = Vector2(-9, 3.5)
+shape = SubResource("RectangleShape2D_odojx")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1695636660]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1189557276]
+position = Vector2(-1.5, -12.5)
+shape = SubResource("RectangleShape2D_gboe4")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=365807036]
+stream = ExtResource("4_qpx0w")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]

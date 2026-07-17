@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dhljh2mneo55m"]
+
+[ext_resource type="Script" uid="uid://cjb2tbdm21jb5" path="res://scripts/placa_2.gd" id="1_gj3hr"]
+[ext_resource type="PackedScene" uid="uid://qxc6y5vnc1g5" path="res://INTERACTION/INTERACTION_AREA/interaction_area.tscn" id="1_qv10n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gj3hr"]
+radius = 25.019993
+
+[node name="Placa2" type="Node2D" unique_id=640929306]
+script = ExtResource("1_gj3hr")
+
+[node name="InteractionArea" parent="." unique_id=1968524516 instance=ExtResource("1_qv10n")]
+action_name = "interagir"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=10828693]
+light_mask = 3
+visibility_layer = 3
+shape = SubResource("CircleShape2D_gj3hr")

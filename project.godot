@@ -15,8 +15,9 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="RootBound"
-run/main_scene="uid://di3rg4x4b3a63"
+run/main_scene="uid://crqin4g1gnlkc"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+boot_splash/bg_color=Color(0.21019179, 0.114500456, 0.04870171, 1)
 config/icon="res://icon.svg"
 
 [autoload]
@@ -27,26 +28,28 @@ EffectsManager="*res://scripts/EffectsManager.gd"
 AudioManager="*res://scripts/AudioManager.gd"
 SignalManager="*res://scripts/SignalManager.gd"
 Dialogic="*uid://ds2q0uclmolvu"
+InteractionManager="*uid://byiuboyuos7f1"
+Gamestate="*uid://iaj0kk6t1ihy"
+Transitions="*uid://bq0f7cg4gdv3w"
 
 [dialogic]
 
 directories/dch_directory={
 "Resources/unit_test_character": "res://DIALOGUES/Tests/Resources/unit_test_character.dch",
-"Talpida": "res://DIALOGUES/characters/Talpida.dch"
+"Talpida": "res://DIALOGUES/characters/Talpida.dch",
+"caderno do geb": "res://DIALOGUES/characters/caderno do geb.dch"
 }
 directories/dtl_directory={
-"timeline": "res://DIALOGUES/timelines/timeline.dtl"
+"falar_com_gaia": "res://DIALOGUES/timelines/falar_com_gaia.dtl",
+"placa_aviso": "res://DIALOGUES/timelines/placa_aviso.dtl",
+"timeline": "res://DIALOGUES/timelines/timeline.dtl",
+"timeline2": "res://DIALOGUES/timelines/timeline2.dtl"
 }
-layout/style_directory={
-"": "res://DIALOGUES/styles/default.tres",
-"default": "res://DIALOGUES/styles/default.tres"
-}
+layout/style_directory={}
 glossary/default_case_sensitive=true
-layout/style_list=["res://DIALOGUES/styles/default.tres"]
-layout/default_style="res://DIALOGUES/styles/default.tres"
-variables={
-"touching_border": false
-}
+layout/style_list=[]
+layout/default_style=""
+variables={}
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
@@ -96,6 +99,8 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 [global_group]
 
 player=""
+collectable=""
+enemies=""
 
 [input]
 
@@ -112,7 +117,6 @@ RIGHT_MOUSE={
 jump={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"key_label":0,"unicode":119,"location":0,"echo":false,"script":null)
 ]
 }
 left={
@@ -146,6 +150,20 @@ dialogic_default_action={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
+interact={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
+]
+}
+down={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":115,"location":0,"echo":false,"script":null)
+]
+}
+
+[layer_names]
+
+2d_physics/layer_3="collectables"
 
 [physics]
 

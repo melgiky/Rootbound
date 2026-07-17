@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="DialogicStyle" format=3 uid="uid://bevlc48b8j1gy"]
+
+[ext_resource type="Script" uid="uid://bwg6yncmh2cml" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_0cy17"]
+[ext_resource type="Script" uid="uid://dv08k6ljua6fm" path="res://addons/dialogic/Resources/dialogic_style.gd" id="2_oi5v4"]
+
+[sub_resource type="Resource" id="Resource_7lsu3"]
+script = ExtResource("1_0cy17")
+overrides = {
+"global_font": "\"res://resources/fonts/Px437_IBM_XGA-AI_7x15.ttf\"",
+"global_font_size": "22.0"
+}
+
+[resource]
+script = ExtResource("2_oi5v4")
+name = "aaa"
+layer_info = {
+"": SubResource("Resource_7lsu3")
+}
+metadata/_latest_layer = ""

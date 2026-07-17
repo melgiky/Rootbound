@@ -2,13 +2,13 @@ extends Node2D
 
 @onready var tilemap = $Quebraveis
 @onready var player = $Player
+@onready var selector = $BlockSelector
 
 const MINE_RANGE = 72.0
 
 
 func _ready():
 
-	print(Dialogic.VAR.touching_border)
 	
 	SignalManager.connect(
 		"SPAWN_BLOCK_PARTICLES",
@@ -259,8 +259,37 @@ func spawn_block_particles(
 			block_type,
 			start_collision
 		)
+		
+func update_block_selector():
+
+	var mouse_pos = get_global_mouse_position()
+
+	var cell = tilemap.local_to_map(mouse_pos)
+
+	var atlas = tilemap.get_cell_atlas_coords(0, cell)
+
+	# Não existe bloco
+	if atlas == Vector2i(-1, -1):
+		selector.hide()
+		return
+
+	var block_pos = tilemap.map_to_local(cell)
+
+	# transforma para coordenada global
+	block_pos += tilemap.global_position
+
+	# Fora do alcance
+	if !can_mine(block_pos):
+		selector.hide()
+		return
+
+	selector.show()
+	selector.global_position = block_pos
+
+func _process(delta):
+	update_block_selector()
+
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		
-		Dialogic.start("timeline")
+		get_tree().change_scene_to_file("res://world2.tscn")

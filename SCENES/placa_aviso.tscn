@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dix2ukk432b1l"]
+
+[ext_resource type="Script" uid="uid://dny76y65ut00u" path="res://scripts/placa_aviso.gd" id="1_f86jh"]
+[ext_resource type="PackedScene" uid="uid://qxc6y5vnc1g5" path="res://INTERACTION/INTERACTION_AREA/interaction_area.tscn" id="1_josxr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f86jh"]
+radius = 25.019993
+
+[node name="placa_aviso" type="Node2D" unique_id=1188120054]
+script = ExtResource("1_f86jh")
+
+[node name="InteractionArea" parent="." unique_id=1968524516 instance=ExtResource("1_josxr")]
+action_name = "interagir"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=752443640]
+light_mask = 3
+visibility_layer = 3
+shape = SubResource("CircleShape2D_f86jh")

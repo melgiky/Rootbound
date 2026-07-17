@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://byiuboyuos7f1"]
+
+[ext_resource type="Script" uid="uid://cwy1peo8r2hgs" path="res://INTERACTION/interaction_manager.gd" id="1_63nyn"]
+[ext_resource type="FontFile" uid="uid://dn2f71onqoqqq" path="res://resources/fonts/PixelatedEleganceRegular-ovawB.ttf" id="2_63nyn"]
+
+[node name="InteractionManager" type="Node2D" unique_id=621936251]
+script = ExtResource("1_63nyn")
+
+[node name="Label" type="Label" parent="." unique_id=1120433731]
+z_index = 20
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -63.0
+offset_top = -1.0
+offset_right = 62.0
+offset_bottom = 14.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_63nyn")
+theme_override_font_sizes/font_size = 8
+text = "[E] para interagir"
+horizontal_alignment = 1
+vertical_alignment = 1

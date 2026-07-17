@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://2vra33ots4je"]
+
+[ext_resource type="Script" uid="uid://dah2baoykwnth" path="res://cutscene_inicial.gd" id="1_ld567"]
+[ext_resource type="VideoStream" uid="uid://d3byltkqj7ahd" path="res://MELISSA/AUDIO/trabalho-da-melissa.ogv" id="2_dyjgx"]
+[ext_resource type="AudioStream" uid="uid://ctunhuyef504k" path="res://MELISSA/AUDIO/serious.mp3" id="3_s6aem"]
+[ext_resource type="AudioStream" uid="uid://dy6vboly27b4y" path="res://MELISSA/AUDIO/forest.mp3" id="4_urmox"]
+
+[node name="Cutscene_inicial" type="Node2D" unique_id=92198376]
+script = ExtResource("1_ld567")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=2000915641]
+layout_direction = 4
+offset_left = -34.999996
+offset_top = -34.999996
+offset_right = 1885.0
+offset_bottom = 1045.0
+scale = Vector2(0.7, 0.7)
+size_flags_horizontal = 10
+stream = ExtResource("2_dyjgx")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1108056384]
+stream = ExtResource("3_s6aem")
+volume_db = -8.104
+autoplay = true
+parameters/looping = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2071824385]
+stream = ExtResource("4_urmox")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true

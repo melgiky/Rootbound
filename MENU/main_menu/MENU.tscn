@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://crqin4g1gnlkc"]
+
+[ext_resource type="Texture2D" uid="uid://rneo4lhc3hck" path="res://MENU/main_menu/botoes_main_menu/iniciar_normal.png" id="1_6cpqo"]
+[ext_resource type="Script" uid="uid://cx03vv15doxak" path="res://MENU/main_menu/menu.gd" id="1_jbi45"]
+[ext_resource type="Texture2D" uid="uid://blxoftu6ndmtu" path="res://MENU/main_menu/botoes_main_menu/iniciar_hover.png" id="2_jbi45"]
+[ext_resource type="Texture2D" uid="uid://wyfq06fwecrf" path="res://MELISSA/awesomeCavePixelArt.png" id="2_torrt"]
+[ext_resource type="Texture2D" uid="uid://2xfu1e8dk5fk" path="res://MENU/main_menu/botoes_main_menu/sair_normal.png" id="3_torrt"]
+[ext_resource type="Texture2D" uid="uid://btvvlp8854j3d" path="res://MENU/main_menu/botoes_main_menu/sair_hover.png" id="4_uw2wq"]
+[ext_resource type="FontFile" uid="uid://dn2f71onqoqqq" path="res://resources/fonts/PixelatedEleganceRegular-ovawB.ttf" id="5_ytb71"]
+[ext_resource type="AudioStream" uid="uid://dedbpmnjc4c7b" path="res://MELISSA/AUDIO/dongting_mora-playing-in-the-forest-152450.mp3" id="6_fligk"]
+[ext_resource type="FontFile" uid="uid://8lg5x1ra5hre" path="res://resources/fonts/KiwiSoda.ttf" id="7_3ywee"]
+[ext_resource type="Texture2D" uid="uid://682f3csdbkee" path="res://TOUPEIRA/toupeiraok.png" id="10_fligk"]
+[ext_resource type="Texture2D" uid="uid://bmt73g2xeiv00" path="res://resources/Gaia.sprite.png" id="11_3ywee"]
+[ext_resource type="Texture2D" uid="uid://0e8tmojo13am" path="res://resources/Geb.sprite.png" id="12_7dk76"]
+[ext_resource type="Texture2D" uid="uid://di23ljntc4suv" path="res://resources/raposaok.png" id="13_7dk76"]
+[ext_resource type="PackedScene" uid="uid://dwqi28sjor08g" path="res://COISAS/TochaG.tscn" id="14_7dk76"]
+
+[node name="Menu" type="Node2D" unique_id=1649304951]
+script = ExtResource("1_jbi45")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1769866326]
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2_torrt")
+
+[node name="Control" type="Control" parent="." unique_id=644923575]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="iniciar" type="TextureButton" parent="Control" unique_id=1777150565]
+layout_mode = 0
+offset_left = 441.0
+offset_top = 264.0
+offset_right = 791.0
+offset_bottom = 414.0
+texture_normal = ExtResource("1_6cpqo")
+texture_pressed = ExtResource("2_jbi45")
+texture_hover = ExtResource("2_jbi45")
+
+[node name="sair" type="TextureButton" parent="Control" unique_id=1459228749]
+layout_mode = 0
+offset_left = 441.0
+offset_top = 394.0
+offset_right = 791.0
+offset_bottom = 544.0
+texture_normal = ExtResource("3_torrt")
+texture_pressed = ExtResource("4_uw2wq")
+texture_hover = ExtResource("4_uw2wq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2133404821]
+root_node = NodePath("")
+
+[node name="Rótulo" type="Label" parent="." unique_id=62526596]
+offset_left = 20.0
+offset_top = 686.0
+offset_right = 600.0
+offset_bottom = 714.0
+theme_override_fonts/font = ExtResource("5_ytb71")
+theme_override_font_sizes/font_size = 20
+text = "Projeto integrado 1 - Design de Jogos UFPel"
+
+[node name="BGMusicMenu" type="AudioStreamPlayer" parent="." unique_id=338894507]
+stream = ExtResource("6_fligk")
+autoplay = true
+
+[node name="Título2" type="Label" parent="." unique_id=960654277]
+offset_left = 313.0
+offset_top = 81.0
+offset_right = 960.0
+offset_bottom = 232.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("7_3ywee")
+theme_override_font_sizes/font_size = 150
+text = "RootBound"
+
+[node name="Talpida" type="Sprite2D" parent="." unique_id=1905518146]
+position = Vector2(271, 519)
+scale = Vector2(8, 8)
+texture = ExtResource("10_fligk")
+hframes = 2
+vframes = 2
+
+[node name="Gaia" type="Sprite2D" parent="." unique_id=45136704]
+position = Vector2(455, 570.00006)
+scale = Vector2(7, 7)
+texture = ExtResource("11_3ywee")
+
+[node name="Geb" type="Sprite2D" parent="." unique_id=1179712131]
+position = Vector2(835, 544)
+scale = Vector2(8, 8)
+texture = ExtResource("12_7dk76")
+
+[node name="Vulpes" type="Sprite2D" parent="." unique_id=201858205]
+position = Vector2(1013, 534)
+scale = Vector2(8, 8)
+texture = ExtResource("13_7dk76")
+
+[node name="Tocha4" parent="." unique_id=1819812407 instance=ExtResource("14_7dk76")]
+position = Vector2(53, 329)
+scale = Vector2(5, 5)
+
+[node name="Tocha3" parent="." unique_id=1519973799 instance=ExtResource("14_7dk76")]
+position = Vector2(1169, 346)
+scale = Vector2(5, 5)
+
+[node name="Tocha2" parent="." unique_id=40598704 instance=ExtResource("14_7dk76")]
+position = Vector2(887, 338.00003)
+scale = Vector2(7, 7)
+
+[node name="Tocha" parent="." unique_id=1124134844 instance=ExtResource("14_7dk76")]
+position = Vector2(303.99997, 338.99997)
+scale = Vector2(7, 7)
+
+[connection signal="pressed" from="Control/iniciar" to="." method="_on_iniciar_pressed"]
+[connection signal="pressed" from="Control/sair" to="." method="_on_sair_pressed"]

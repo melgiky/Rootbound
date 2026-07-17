@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://bc77uabdcg2ot"]
+
+[ext_resource type="Script" uid="uid://bg7l88xmk5e7c" path="res://scripts/penguin_patrol.gd" id="1_rsja4"]
+[ext_resource type="Texture2D" uid="uid://d02sblwareqsk" path="res://resources/inimigo/Walk.png" id="2_mgto5"]
+[ext_resource type="Texture2D" uid="uid://5bm7xdpoaesy" path="res://resources/inimigo/Idle.png" id="2_rsja4"]
+[ext_resource type="Texture2D" uid="uid://biajqp1yknmj3" path="res://resources/explosion.png" id="3_awr8c"]
+[ext_resource type="AudioStream" uid="uid://b01eicj0x5oky" path="res://MELISSA/AUDIO/penguin-waddle.mp3" id="4_mgto5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ja6ce"]
+size = Vector2(9, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsxrl"]
+atlas = ExtResource("2_rsja4")
+region = Rect2(64, 0, 64, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgto5"]
+atlas = ExtResource("2_mgto5")
+region = Rect2(0, 0, 64, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awr8c"]
+atlas = ExtResource("2_mgto5")
+region = Rect2(64, 0, 64, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0slg3"]
+atlas = ExtResource("2_mgto5")
+region = Rect2(128, 0, 64, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ja6ce"]
+atlas = ExtResource("2_mgto5")
+region = Rect2(192, 0, 64, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_quay2"]
+atlas = ExtResource("2_mgto5")
+region = Rect2(256, 0, 64, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21yus"]
+atlas = ExtResource("2_mgto5")
+region = Rect2(320, 0, 64, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_duqe3"]
+atlas = ExtResource("3_awr8c")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22cpi"]
+atlas = ExtResource("3_awr8c")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gboe4"]
+atlas = ExtResource("3_awr8c")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i0fc1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gsxrl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgto5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awr8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0slg3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ja6ce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_quay2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21yus")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_duqe3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22cpi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gboe4")
+}],
+"loop": false,
+"name": &"die",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rme0b"]
+radius = 12.0415945
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0dmif"]
+size = Vector2(18, 2.5)
+
+[node name="penguin_patrol" type="CharacterBody2D" unique_id=1030840106 groups=["enemies"]]
+collision_layer = 4
+script = ExtResource("1_rsja4")
+speed = 80.0
+
+[node name="colisao_chao" type="CollisionShape2D" parent="." unique_id=1709129916]
+position = Vector2(1.5, 13.5)
+shape = SubResource("RectangleShape2D_ja6ce")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1583615785]
+position = Vector2(1, -4)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_i0fc1")
+autoplay = "default"
+frame_progress = 0.59732914
+
+[node name="Area2D" type="Area2D" parent="." unique_id=352404610]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=1155281617]
+position = Vector2(1, 5)
+shape = SubResource("CircleShape2D_rme0b")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1663274294]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=296779518]
+position = Vector2(1, -8.25)
+shape = SubResource("RectangleShape2D_0dmif")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1786013255]
+stream = ExtResource("4_mgto5")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]

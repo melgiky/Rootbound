@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://bq0f7cg4gdv3w"]
+
+[ext_resource type="Script" uid="uid://cug12ndb6xbh5" path="res://canvas_layer.gd" id="1_d1byx"]
+
+[sub_resource type="Animation" id="Animation_7s7a8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gds67"]
+resource_name = "black_to_white"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666667, 0.56666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vkb6r"]
+resource_name = "white_to_black"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.56666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_24d0y"]
+_data = {
+&"RESET": SubResource("Animation_7s7a8"),
+&"black_to_white": SubResource("Animation_gds67"),
+&"white_to_black": SubResource("Animation_vkb6r")
+}
+
+[node name="transitions" type="CanvasLayer" unique_id=751597003]
+script = ExtResource("1_d1byx")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=736872312]
+offset_right = 1291.0
+offset_bottom = 740.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=867023589]
+root_node = NodePath("../ColorRect")
+libraries/ = SubResource("AnimationLibrary_24d0y")

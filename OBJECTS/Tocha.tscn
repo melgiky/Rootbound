@@ -52,6 +52,7 @@ fill_from = Vector2(0.5, 0.5)
 [node name="Tocha" type="Node2D" unique_id=1819812407]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2099714550]
+modulate = Color(0.1331965, 0.13319635, 0.13319644, 1)
 texture = ExtResource("1_gyfqj")
 hframes = 3
 vframes = 2
@@ -62,16 +63,15 @@ libraries/ = SubResource("AnimationLibrary_pi3y6")
 autoplay = &"padraook"
 
 [node name="PointLight2D2" type="PointLight2D" parent="." unique_id=229388313]
-position = Vector2(2.842171e-14, -1.9999999)
-scale = Vector2(0.73828125, 0.71875006)
+position = Vector2(0, 2.3841858e-07)
+scale = Vector2(0.9003906, 0.89062494)
 color = Color(0.90103626, 0.89733386, 2.3102762e-06, 1)
-energy = 2.0
-range_item_cull_mask = 3
+energy = 4.0
 texture = SubResource("GradientTexture2D_4eruo")
 
 [node name="PointLight2D2" type="PointLight2D" parent="PointLight2D2" unique_id=1827817372]
-position = Vector2(0.5276125, -0.78261054)
-scale = Vector2(0.4914486, 0.45923907)
+position = Vector2(0, -9.536743e-07)
+scale = Vector2(0.4744886, 0.45425728)
 color = Color(0.90103626, 0.89733386, 2.3102762e-06, 1)
-range_item_cull_mask = 3
+energy = 7.0
 texture = SubResource("GradientTexture2D_4eruo")

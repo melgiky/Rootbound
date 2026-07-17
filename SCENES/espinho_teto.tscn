@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://m3fucm4d6q24"]
+
+[ext_resource type="Script" uid="uid://dekpu6pjhp0s1" path="res://espinho_teto.gd" id="1_ry8ig"]
+[ext_resource type="Texture2D" uid="uid://brmbesd5fbfmk" path="res://resources/New Piskel-1.png.png" id="2_mf22v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mf22v"]
+size = Vector2(16, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7b1e"]
+size = Vector2(14, 11)
+
+[node name="Espinho_teto" type="Node2D" unique_id=557064755]
+script = ExtResource("1_ry8ig")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=145851530]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1054616234]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_mf22v")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1956951234]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1013973878]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_e7b1e")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=775963494]
+texture = ExtResource("2_mf22v")
+flip_v = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bj7uq8h80jbkb"]
+
+[ext_resource type="Script" uid="uid://d0nugwcpoem2i" path="res://CAMERAS/zoom de objeto/zoom_de_objeto.gd" id="1_sgper"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_abgq0"]
+radius = 45.01111
+
+[node name="Zoom de objeto" type="Area2D" unique_id=590583838]
+script = ExtResource("1_sgper")
+tempo_da_animacao = 3.0
+atraso = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1693913450]
+shape = SubResource("CircleShape2D_abgq0")
+
+[node name="Node2D" type="Node2D" parent="CollisionShape2D" unique_id=81734491]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1983546696]
+visible = false
+position = Vector2(1, 0)
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://chk65ilo3n3kc"]
+
+[ext_resource type="Script" uid="uid://b7feuiknxuldh" path="res://scripts/falling_spike.gd" id="1_nmkov"]
+[ext_resource type="Texture2D" uid="uid://7frxcrom6tig" path="res://resources/icicle.png" id="2_at807"]
+[ext_resource type="AudioStream" uid="uid://dadchunv4gfu0" path="res://MELISSA/AUDIO/ice_falling.mp3" id="3_at807"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gkdnb"]
+size = Vector2(20, 104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gags8"]
+size = Vector2(16, 12)
+
+[sub_resource type="Animation" id="Animation_nmkov"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_at807"]
+resource_name = "Shake"
+length = 0.8325
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.23333333, 0.36666667, 0.5, 0.6333333, 0.76666665),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1), Vector2(2, 0), Vector2(1, 1), Vector2(0, 0), Vector2(-1, 1), Vector2(-1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gkdnb"]
+_data = {
+&"RESET": SubResource("Animation_nmkov"),
+&"Shake": SubResource("Animation_at807")
+}
+
+[node name="falling_spike" type="Node2D" unique_id=2105280052]
+script = ExtResource("1_nmkov")
+
+[node name="player_detect" type="Area2D" parent="." unique_id=1119185306]
+position = Vector2(0, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_detect" unique_id=297637279]
+position = Vector2(0, 42)
+shape = SubResource("RectangleShape2D_gkdnb")
+
+[node name="hitbox" type="Area2D" parent="." unique_id=653255798]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=435933447]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_gags8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2041772752]
+root_node = NodePath("../Sprite2D")
+libraries/ = SubResource("AnimationLibrary_gkdnb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=902353857]
+texture = ExtResource("2_at807")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1763316882]
+stream = ExtResource("3_at807")
+
+[connection signal="body_entered" from="player_detect" to="." method="_on_player_detect_body_entered"]
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
