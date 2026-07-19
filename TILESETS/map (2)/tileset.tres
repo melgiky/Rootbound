@@ -8,7 +8,7 @@
 texture = ExtResource("1_7jxc3")
 margins = Vector2i(8, 8)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 2.013729, -8, 2.013729)
 1:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
@@ -17,7 +17,7 @@ margins = Vector2i(8, 8)
 texture = ExtResource("2_tyx0a")
 margins = Vector2i(8, 6)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 2.030511, -8, 2.2335615)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -1.0068655, 8, -1.0068655, 8, 8, -8, 8)
 1:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0

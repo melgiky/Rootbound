@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bgxo54doju3u"]
 
-[ext_resource type="Script" path="res://COISAS/espinhotriplo.gd" id="1_dhenf"]
+[ext_resource type="Script" uid="uid://c5kl5lpl83t7m" path="res://COISAS/espinhotriplo.gd" id="1_dhenf"]
 [ext_resource type="Texture2D" uid="uid://brmbesd5fbfmk" path="res://resources/New Piskel-1.png.png" id="2_5um63"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hygl"]

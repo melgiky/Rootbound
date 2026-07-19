@@ -32,6 +32,14 @@ var is_dead = false
 var hearts_list : Array[TextureRect]
 var health = 5
 
+# ===============================
+# INVINCIBILITY (I-FRAMES)
+# ===============================
+
+@export var invincibility_time := 1.0
+@export var blink_interval := 0.08
+
+var invincible := false
 
 # ==========================================
 # MINING
@@ -120,16 +128,14 @@ func die():
 # KNOCKBACK
 # ==========================================
 
-func apply_knockback(direction: Vector2, force: float, duration: float):
+func apply_knockback(direction: Vector2, force: float, duration: float, upward_force := 280.0):
 
 	state = State.HURT
 
 	knockback_velocity = direction * force
-	knockback_velocity.y = -120
+	knockback_velocity.y = -upward_force
 
 	knockback_timer = duration
-
-
 func handle_knockback(delta):
 
 	velocity = knockback_velocity
@@ -143,6 +149,30 @@ func handle_knockback(delta):
 		knockback_velocity = Vector2.ZERO
 		state = State.IDLE
 
+# ==========================================
+# INVINCIBILITY
+# ==========================================
+func start_invincibility():
+
+	if invincible:
+		return
+
+	invincible = true
+
+	_blink()
+
+	await get_tree().create_timer(invincibility_time).timeout
+
+	invincible = false
+	animated_sprite.visible = true
+
+
+func _blink():
+
+	while invincible:
+
+		animated_sprite.visible = !animated_sprite.visible
+		await get_tree().create_timer(blink_interval).timeout
 
 # ==========================================
 # MINING
@@ -317,13 +347,18 @@ func take_damage():
 	if is_dead:
 		return
 
+	if invincible:
+		return
+
 	if health <= 0:
 		return
 
 	health -= 1
-	damage.play()
 
+	damage.play()
 	update_heart_display()
+
+	start_invincibility()
 
 
 func update_heart_display():
