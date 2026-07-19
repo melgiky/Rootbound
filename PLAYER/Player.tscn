@@ -229,7 +229,7 @@ shape = SubResource("RectangleShape2D_y2hgb")
 modulate = Color(0.60933006, 0.6093302, 0.60932994, 1)
 position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_u4gk4")
-animation = &"idle"
+animation = &"morrer"
 autoplay = "idle"
 
 [node name="jump" type="AudioStreamPlayer" parent="." unique_id=1690071958]

@@ -295,7 +295,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		Transitions.transition()
 		await Transitions.on_transition_finished
 		Gamestate.pass_level()
-		get_tree().change_scene_to_file("res://world2.tscn")
+		get_tree().change_scene_to_file("res://SCENES/lvl_1_lvl_2.tscn")
 
 
 func _on_dialog_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
