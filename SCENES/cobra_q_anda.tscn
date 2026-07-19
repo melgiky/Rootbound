@@ -88,10 +88,10 @@ animations = [{
 size = Vector2(25, 8.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ipxl"]
-size = Vector2(11, 24)
+size = Vector2(13, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_85k11"]
-size = Vector2(19, 7)
+size = Vector2(20.5, 3.5)
 
 [node name="cobra_q_anda" type="CharacterBody2D" unique_id=1440751711]
 script = ExtResource("1_je2kt")
@@ -113,13 +113,13 @@ position = Vector2(-1, 7.75)
 shape = SubResource("RectangleShape2D_arc6k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=821677273]
-position = Vector2(-8.5, 0)
+position = Vector2(-7.5, -0.5)
 shape = SubResource("RectangleShape2D_0ipxl")
 
 [node name="Area2D2" type="Area2D" parent="." unique_id=1712958532]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=608656181]
-position = Vector2(-8, -13)
+position = Vector2(-7.25, -14.75)
 shape = SubResource("RectangleShape2D_85k11")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=359708862]

@@ -48,16 +48,16 @@ justification_flags = 0
 
 [node name="Título3" type="Label" parent="Control" unique_id=1196296389]
 layout_mode = 0
-offset_left = 474.0
-offset_top = 32.0
-offset_right = 823.0
-offset_bottom = 183.0
+offset_left = 414.0
+offset_top = 26.0
+offset_right = 869.0
+offset_bottom = 177.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("3_7b3vl")
 theme_override_font_sizes/font_size = 130
-text = "Final 1"
+text = "Final 1/2"
 
 [node name="espaço_para_pular" type="Label" parent="." unique_id=633577153]
 offset_left = 668.0

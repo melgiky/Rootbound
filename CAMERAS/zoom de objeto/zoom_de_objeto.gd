@@ -6,15 +6,20 @@ extends Node2D
 
 @export var alvo: Node2D
 
-@export var tempo_movimento := 0.7
-@export var tempo_foco := 0.4
-@export var tempo_zoom := 0.35
+@export var tempo_movimento := 0.75
+@export var tempo_foco := 0.35
 
-# Quanto menor, mais distante fica a câmera
-@export var zoom_out := Vector2(1.7, 1.7)
+# Zoom out mais rápido
+@export var tempo_zoom_out := 0.22
+
+# Zoom in mais suave
+@export var tempo_zoom_in := 0.45
+
+@export var zoom_out := Vector2(2.0, 2.0)
+@export var zoom_objeto := Vector2(3.5, 3.5)
 
 var visto := false
-var zoom_original: Vector2
+var zoom_original : Vector2
 
 
 func _ready():
@@ -28,6 +33,7 @@ func freeze_player(freeze: bool):
 
 
 func finalizar():
+
 	freeze_player(false)
 
 	target_camera.enabled = false
@@ -55,38 +61,84 @@ func _on_body_shape_entered(_rid, body, _body_shape, _local_shape):
 
 	var tween = create_tween()
 
-	# Vai até o objetivo dando zoom out
-	tween.parallel().tween_property(
-		target_camera,
-		"global_position",
-		alvo.global_position,
-		tempo_movimento
-	)
+	#
+	# Vai para o objeto
+	#
 
-	tween.parallel().tween_property(
-		target_camera,
-		"zoom",
-		zoom_out,
-		tempo_zoom
-	)
+	tween.parallel()\
+		.tween_property(
+			target_camera,
+			"global_position",
+			alvo.global_position,
+			tempo_movimento
+		)\
+		.set_trans(Tween.TRANS_SINE)\
+		.set_ease(Tween.EASE_IN_OUT)
 
-	# Mostra rapidamente o objetivo
-	tween.tween_interval(tempo_foco)
+	tween.parallel()\
+		.tween_property(
+			target_camera,
+			"zoom",
+			zoom_out,
+			tempo_zoom_out
+		)\
+		.set_trans(Tween.TRANS_CUBIC)\
+		.set_ease(Tween.EASE_OUT)
 
-	# Volta para o player mantendo o zoom out
+	#
+	# Zoom in suave no objeto
+	#
+
 	tween.tween_property(
 		target_camera,
-		"global_position",
-		active_cam.global_position,
-		tempo_movimento
-	)
+		"zoom",
+		zoom_objeto,
+		tempo_zoom_in
+	)\
+	.set_trans(Tween.TRANS_SINE)\
+	.set_ease(Tween.EASE_IN_OUT)
 
-	# Só depois faz o zoom voltar
+	#
+	# Espera
+	#
+
+	tween.tween_interval(tempo_foco)
+
+	#
+	# Volta para o player
+	#
+
+	tween.parallel()\
+		.tween_property(
+			target_camera,
+			"global_position",
+			active_cam.global_position,
+			tempo_movimento
+		)\
+		.set_trans(Tween.TRANS_SINE)\
+		.set_ease(Tween.EASE_IN_OUT)
+
+	tween.parallel()\
+		.tween_property(
+			target_camera,
+			"zoom",
+			zoom_out,
+			tempo_zoom_out
+		)\
+		.set_trans(Tween.TRANS_CUBIC)\
+		.set_ease(Tween.EASE_OUT)
+
+	#
+	# Fecha suavemente no player
+	#
+
 	tween.tween_property(
 		target_camera,
 		"zoom",
 		zoom_original,
-		tempo_zoom
-	)
+		tempo_zoom_in
+	)\
+	.set_trans(Tween.TRANS_SINE)\
+	.set_ease(Tween.EASE_IN_OUT)
 
 	tween.tween_callback(finalizar)

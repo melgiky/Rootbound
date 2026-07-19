@@ -20,3 +20,7 @@ func add_fruits():
 	
 func _process(delta: float) -> void:
 	timer.text = str(int(level_timer.time_left),"s")
+
+
+func _on_level_timer_timeout() -> void:
+	game_over()

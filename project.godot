@@ -41,7 +41,6 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "borda": "res://DIALOGUES/timelines/borda.dtl",
-"falar_com_gaia": "res://DIALOGUES/timelines/falar_com_gaia.dtl",
 "placa_aviso": "res://DIALOGUES/timelines/placa_aviso.dtl",
 "placa_espinhos": "res://DIALOGUES/timelines/placa_espinhos.dtl",
 "timeline": "res://DIALOGUES/timelines/timeline.dtl",

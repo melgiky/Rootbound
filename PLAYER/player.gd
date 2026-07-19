@@ -68,7 +68,6 @@ func _ready():
 
 func _physics_process(delta):
 
-	handle_quit()
 	handle_death()
 
 	if state == State.DEAD:
@@ -92,12 +91,7 @@ func _physics_process(delta):
 # ==========================================
 # BASIC
 # ==========================================
-
-func handle_quit():
-
-	if Input.is_action_just_pressed("quit"):
-		get_tree().quit()
-
+ 
 
 func handle_death():
 
